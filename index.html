@@ -1,1385 +1,1499 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Paul Ayotomiwa | Map_Technologies</title>
+
+<style>
+
+/* ================================
+   RESET
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #05070d;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* ================================
+   BACKGROUND
+================================ */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    top: -250px;
+    right: -150px;
+    background: #006eff;
+    opacity: 0.12;
+    filter: blur(150px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -2;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 450px;
+    height: 450px;
+    bottom: -250px;
+    left: -150px;
+    background: #008cff;
+    opacity: 0.08;
+    filter: blur(150px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -2;
+}
+
+
+/* ================================
+   PARTICLES
+================================ */
+
+#particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #1683ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #1683ff;
+    animation: float 8s linear infinite;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    80% {
+        opacity: 0.4;
+    }
+
+    to {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+
+
+/* ================================
+   NAVBAR
+================================ */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(5, 7, 13, 0.92);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid #172033;
+
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.logo span {
+    color: #1683ff;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    color: #8b95a7;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: #1683ff;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+}
+
+.nav-button {
+    padding: 10px 18px;
+    border: 1px solid #1683ff;
+    border-radius: 6px;
+    color: #1683ff;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-button:hover {
+    background: #1683ff;
+    color: white;
+    box-shadow: 0 0 25px rgba(22,131,255,0.4);
+}
+
+.menu-button {
+    display: none;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid #263142;
+    border-radius: 6px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+}
+
+.menu-button span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: white;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 60px;
+
+    padding: 140px 7% 80px;
+}
+
+.hero-content {
+    max-width: 680px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #1683ff;
+
+    font-size: 0.75rem;
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 25px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #1683ff;
+    box-shadow: 0 0 15px #1683ff;
+}
+
+.hero-intro {
+    color: #8893a5;
+    margin-bottom: 5px;
+}
+
+.hero h1 {
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    line-height: 1;
+    letter-spacing: -4px;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #1683ff;
+    text-shadow: 0 0 35px rgba(22,131,255,0.3);
+}
+
+.hero-title {
+    font-size: clamp(1.7rem, 3vw, 2.8rem);
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.hero-title span {
+    color: #1683ff;
+}
+
+.hero-description {
+    max-width: 600px;
+    color: #8c96a7;
+    margin-bottom: 25px;
+}
+
+.hero-badge {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    color: #7e899a;
+
+    font-size: 0.8rem;
+
+    margin-bottom: 30px;
+}
+
+.hero-badge i {
+    color: #1683ff;
+}
+
+.badge-divider {
+    color: #293446;
+}
 
-    <meta charset="UTF-8">
+
+/* ================================
+   BUTTONS
+================================ */
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+.primary-button,
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
 
-    <title>Paul | Software Engineer</title>
+    padding: 14px 22px;
 
+    border-radius: 7px;
 
-    <style>
+    font-weight: bold;
 
-        /* ================================
-           RESET
-        ================================= */
+    transition: 0.3s;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+.primary-button {
+    background: #1683ff;
+    color: white;
+    box-shadow: 0 0 25px rgba(22,131,255,0.2);
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+.primary-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(22,131,255,0.35);
+}
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
+.secondary-button {
+    border: 1px solid #273244;
+    color: #d5dbe5;
+}
 
-            background: #05070d;
+.secondary-button:hover {
+    border-color: #1683ff;
+    color: #1683ff;
+    transform: translateY(-3px);
+}
 
-            color: white;
 
-            line-height: 1.6;
+/* ================================
+   SOCIALS
+================================ */
 
-            overflow-x: hidden;
-        }
+.socials {
+    display: flex;
+    gap: 10px;
+}
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+.socials a {
+    width: 42px;
+    height: 42px;
 
-        ::selection {
-            background: #1683ff;
-            color: white;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    border: 1px solid #202b3c;
+    border-radius: 7px;
 
-        /* ================================
-           BACKGROUND
-        ================================= */
+    color: #8994a6;
 
-        body::before {
-            content: "";
+    font-size: 0.8rem;
 
-            position: fixed;
+    transition: 0.3s;
+}
 
-            width: 500px;
-            height: 500px;
+.socials a:hover {
+    color: #1683ff;
+    border-color: #1683ff;
+    transform: translateY(-3px);
+}
 
-            border-radius: 50%;
 
-            background: #006eff;
+/* ================================
+   CODE WINDOW
+================================ */
 
-            opacity: 0.08;
+.code-window {
+    width: 500px;
 
-            filter: blur(150px);
+    background: #080c14;
 
-            top: -200px;
-            right: -150px;
+    border: 1px solid #202b3c;
 
-            pointer-events: none;
+    border-radius: 12px;
 
-            z-index: -1;
-        }
+    overflow: hidden;
 
-        body::after {
-            content: "";
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.6),
+        0 0 40px rgba(22,131,255,0.1);
 
-            position: fixed;
+    transform: rotate(2deg);
 
-            width: 400px;
-            height: 400px;
+    transition: 0.3s;
+}
 
-            border-radius: 50%;
+.window-top {
+    height: 45px;
 
-            background: #008cff;
+    display: flex;
+    align-items: center;
 
-            opacity: 0.05;
+    padding: 0 15px;
 
-            filter: blur(130px);
+    background: #0c111a;
 
-            bottom: -200px;
-            left: -150px;
+    border-bottom: 1px solid #202b3c;
+}
 
-            pointer-events: none;
+.window-buttons {
+    display: flex;
+    gap: 7px;
+    margin-right: 20px;
+}
 
-            z-index: -1;
-        }
+.window-buttons span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #405066;
+}
 
+.file-name {
+    color: #7b8799;
+    font-size: 0.75rem;
+}
 
-        /* ================================
-           NAVBAR
-        ================================= */
+.code {
+    padding: 30px;
 
-        .navbar {
-            position: fixed;
+    color: #d8dee8;
 
-            top: 0;
-            left: 0;
+    font-family: "Courier New", monospace;
 
-            width: 100%;
+    font-size: 0.9rem;
 
-            height: 75px;
+    line-height: 2;
+}
 
-            display: flex;
+.indent {
+    padding-left: 25px;
+}
 
-            align-items: center;
+.double-indent {
+    padding-left: 50px;
+}
 
-            justify-content: space-between;
+.purple {
+    color: #c084fc;
+}
 
-            padding: 0 7%;
+.blue {
+    color: #60a5fa;
+}
 
-            background: rgba(5, 7, 13, 0.85);
+.green {
+    color: #86efac;
+}
 
-            backdrop-filter: blur(20px);
+.yellow {
+    color: #facc15;
+}
 
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+.comment {
+    color: #526074;
+}
 
-            z-index: 1000;
-        }
 
+/* ================================
+   GENERAL SECTION
+================================ */
 
-        .logo {
-            font-size: 1.5rem;
+.section {
+    padding: 110px 7%;
+    max-width: 1400px;
+    margin: auto;
+}
 
-            font-weight: 900;
+.dark-section {
+    max-width: none;
+    background: #070a10;
+}
 
-            letter-spacing: -1px;
-        }
+.section-title {
+    margin-bottom: 60px;
+}
 
-        .logo span {
-            color: #1683ff;
-        }
+.section-title small {
+    color: #1683ff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
 
+.section-title h2 {
+    font-size: clamp(2.3rem, 5vw, 4rem);
+    line-height: 1;
+    margin-top: 12px;
+    letter-spacing: -2px;
+}
 
-        nav {
-            display: flex;
+.section-title h2 span {
+    color: #1683ff;
+}
 
-            gap: 30px;
-        }
 
-        nav a {
-            color: #8993a3;
+/* ================================
+   STATS
+================================ */
 
-            font-size: 0.9rem;
+.stats-section {
+    padding: 30px 7%;
+    border-top: 1px solid #151e2c;
+    border-bottom: 1px solid #151e2c;
+    background: #060910;
+}
 
-            transition: 0.3s;
-        }
+.stats-container {
+    max-width: 1300px;
+    margin: auto;
 
-        nav a:hover {
-            color: #1683ff;
-        }
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
 
+    gap: 15px;
+}
 
-        .nav-button {
-            border: 1px solid #1683ff;
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 
-            padding: 9px 18px;
+    padding: 20px;
 
-            border-radius: 6px;
+    background: #080c14;
 
-            color: #1683ff;
+    border: 1px solid #1b2636;
 
-            transition: 0.3s;
-        }
+    border-radius: 9px;
+}
 
-        .nav-button:hover {
-            background: #1683ff;
+.stat-icon {
+    color: #1683ff;
+    font-size: 1.4rem;
+}
 
-            color: white;
+.stat-card strong,
+.stat-card span {
+    display: block;
+}
 
-            box-shadow: 0 0 25px rgba(22,131,255,0.4);
-        }
+.stat-card strong {
+    color: white;
+}
 
+.stat-card div span {
+    color: #697589;
+    font-size: 0.75rem;
+}
 
-        /* ================================
-           HERO
-        ================================= */
 
-        .hero {
-            min-height: 100vh;
+/* ================================
+   ABOUT
+================================ */
 
-            display: flex;
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 70px;
+}
 
-            align-items: center;
+.about-text {
+    color: #8d97a8;
+    font-size: 1rem;
+}
 
-            justify-content: space-between;
+.about-text p {
+    margin-bottom: 22px;
+}
 
-            gap: 70px;
+.about-side {
+    display: grid;
+    gap: 18px;
+}
 
-            padding: 140px 7% 90px;
-        }
+.about-card {
+    padding: 35px;
 
+    background: #080c14;
 
-        .hero-content {
-            max-width: 700px;
+    border: 1px solid #202b3c;
 
-            animation: heroIn 1s ease;
-        }
+    border-radius: 12px;
 
+    transition: 0.3s;
+}
 
-        .status {
-            display: flex;
+.about-card:hover {
+    border-color: #1683ff;
+    transform: translateY(-6px);
+}
 
-            align-items: center;
+.about-icon {
+    color: #1683ff;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
 
-            gap: 10px;
+.about-card h3 {
+    margin-bottom: 10px;
+}
 
-            color: #1683ff;
+.about-card p {
+    color: #717d90;
+}
 
-            font-size: 0.75rem;
 
-            font-weight: bold;
+/* ================================
+   FOCUS
+================================ */
 
-            letter-spacing: 2px;
+.focus-grid {
+    max-width: 1200px;
+    margin: auto;
 
-            margin-bottom: 25px;
-        }
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
 
+    gap: 18px;
+}
 
-        .status-dot {
-            width: 8px;
-            height: 8px;
+.focus-card {
+    position: relative;
 
-            background: #1683ff;
+    padding: 30px;
 
-            border-radius: 50%;
+    background: #080c14;
 
-            box-shadow: 0 0 15px #1683ff;
+    border: 1px solid #202b3c;
 
-            animation: pulse 1.5s infinite;
-        }
+    border-radius: 11px;
 
+    transition: 0.3s;
+}
 
-        .hero h1 {
-            font-size: clamp(3rem, 7vw, 6rem);
+.focus-card:hover {
+    transform: translateY(-7px);
+    border-color: #1683ff;
+}
 
-            line-height: 0.98;
+.focus-number {
+    color: #1683ff;
+    font-family: monospace;
+    font-size: 0.75rem;
+}
 
-            letter-spacing: -5px;
+.focus-card > i {
+    display: block;
+    color: #1683ff;
+    font-size: 2rem;
+    margin: 25px 0 15px;
+}
 
-            margin-bottom: 30px;
-        }
+.focus-card p {
+    color: #707b8e;
+    font-size: 0.88rem;
+}
 
 
-        .hero h1 span {
-            color: #1683ff;
+/* ================================
+   SKILLS
+================================ */
 
-            text-shadow:
-                0 0 30px rgba(22,131,255,0.35);
-        }
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 18px;
+}
 
+.skill {
+    padding: 30px;
 
-        .hero-description {
-            max-width: 600px;
+    min-height: 220px;
 
-            color: #929baa;
+    background: #080c14;
 
-            font-size: 1.05rem;
+    border: 1px solid #202b3c;
 
-            margin-bottom: 35px;
-        }
+    border-radius: 11px;
 
+    transition: 0.3s;
+}
 
-        /* ================================
-           BUTTONS
-        ================================= */
+.skill:hover {
+    transform: translateY(-7px);
+    border-color: #1683ff;
+}
 
-        .buttons {
-            display: flex;
+.skill-number {
+    color: #1683ff;
+    font-family: monospace;
+}
 
-            gap: 15px;
+.skill-icon {
+    width: 48px;
+    height: 48px;
 
-            margin-bottom: 35px;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    margin: 22px 0 15px;
 
-        .primary-button {
-            display: inline-flex;
+    border: 1px solid #243043;
 
-            align-items: center;
+    border-radius: 8px;
 
-            gap: 10px;
+    color: #1683ff;
 
-            padding: 14px 23px;
+    font-size: 1.4rem;
+}
 
-            background: #1683ff;
+.skill p {
+    color: #707b8e;
+    font-size: 0.88rem;
+}
 
-            color: white;
 
-            border-radius: 7px;
+/* ================================
+   PROJECTS
+================================ */
 
-            font-weight: bold;
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
 
-            transition: 0.3s;
-        }
+.project {
+    padding: 30px;
 
+    background: #080c14;
 
-        .primary-button:hover {
-            transform: translateY(-4px);
+    border: 1px solid #202b3c;
 
-            box-shadow:
-                0 15px 35px rgba(22,131,255,0.3);
-        }
+    border-radius: 12px;
 
+    transition: 0.3s;
+}
 
-        .secondary-button {
-            padding: 14px 23px;
+.project:hover {
+    transform: translateY(-7px);
+    border-color: #1683ff;
+}
 
-            border: 1px solid #293343;
+.project-top {
+    display: flex;
+    justify-content: space-between;
 
-            color: #d5dbe5;
+    color: #1683ff;
 
-            border-radius: 7px;
+    font-size: 0.7rem;
 
-            transition: 0.3s;
-        }
+    margin-bottom: 40px;
+}
 
+.project-icon {
+    color: #1683ff;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
 
-        .secondary-button:hover {
-            border-color: #1683ff;
+.project p {
+    color: #717d90;
+    margin: 15px 0 25px;
+}
 
-            color: #1683ff;
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
 
-            transform: translateY(-4px);
-        }
+.tags span {
+    padding: 5px 9px;
+    background: #101722;
+    color: #8d98a9;
+    border-radius: 4px;
+    font-size: 0.7rem;
+}
 
+.project-links {
+    display: flex;
+    gap: 18px;
+    margin-top: 25px;
+}
 
-        /* ================================
-           SOCIALS
-        ================================= */
+.project-links a {
+    color: #1683ff;
+    font-size: 0.8rem;
+}
 
-        .socials {
-            display: flex;
 
-            gap: 10px;
-        }
+/* ================================
+   JOURNEY
+================================ */
 
+.timeline {
+    max-width: 800px;
+    margin: auto;
+}
 
-        .socials a {
-            width: 40px;
-            height: 40px;
+.timeline-item {
+    position: relative;
 
-            display: flex;
+    padding-left: 35px;
 
-            align-items: center;
+    padding-bottom: 55px;
 
-            justify-content: center;
+    border-left: 1px solid #253044;
+}
 
-            border: 1px solid #222d3d;
+.timeline-item:last-child {
+    border-left: none;
+}
 
-            border-radius: 6px;
+.timeline-dot {
+    position: absolute;
 
-            color: #7e899a;
+    left: -6px;
+    top: 3px;
 
-            font-size: 0.75rem;
+    width: 11px;
+    height: 11px;
 
-            font-weight: bold;
+    border-radius: 50%;
 
-            transition: 0.3s;
-        }
+    background: #1683ff;
 
+    box-shadow: 0 0 15px #1683ff;
+}
 
-        .socials a:hover {
-            color: #1683ff;
+.timeline-year {
+    color: #1683ff;
+    font-family: monospace;
+    font-size: 0.8rem;
+}
 
-            border-color: #1683ff;
+.timeline-item h3 {
+    margin: 7px 0;
+}
 
-            transform: translateY(-4px);
-        }
+.timeline-item p {
+    color: #717d90;
+}
 
 
-        /* ================================
-           CODE WINDOW
-        ================================= */
+/* ================================
+   CONTACT
+================================ */
 
-        .code-window {
-            width: 500px;
+.contact {
+    padding: 130px 7%;
 
-            background: #080c14;
+    text-align: center;
 
-            border: 1px solid #202a39;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(22,131,255,0.12),
+            transparent 60%
+        );
+}
 
-            border-radius: 12px;
+.contact > small {
+    color: #1683ff;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
 
-            overflow: hidden;
+.contact h2 {
+    max-width: 800px;
 
-            box-shadow:
-                0 30px 80px rgba(0,0,0,0.5),
-                0 0 40px rgba(22,131,255,0.08);
+    margin: 15px auto 20px;
 
-            transform: rotate(2deg);
+    font-size: clamp(2.5rem,6vw,5rem);
 
-            animation: codeIn 1.2s ease;
-        }
+    line-height: 1;
+}
 
+.contact h2 span {
+    color: #1683ff;
+}
 
-        .window-top {
-            height: 45px;
+.contact > p {
+    max-width: 600px;
+    margin: auto;
+    color: #778294;
+}
 
-            display: flex;
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
 
-            align-items: center;
+    margin-top: 40px;
+}
 
-            padding: 0 15px;
+.contact-button {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 
-            background: #0c111a;
+    padding: 16px 20px;
 
-            border-bottom: 1px solid #202a39;
-        }
+    min-width: 190px;
 
+    background: #080c14;
 
-        .window-buttons {
-            display: flex;
+    border: 1px solid #202b3c;
 
-            gap: 7px;
+    border-radius: 9px;
 
-            margin-right: 20px;
-        }
+    text-align: left;
 
+    transition: 0.3s;
+}
 
-        .window-buttons span {
-            width: 10px;
-            height: 10px;
+.contact-button:hover {
+    border-color: #1683ff;
+    transform: translateY(-5px);
+}
 
-            border-radius: 50%;
+.contact-button > i {
+    color: #1683ff;
+    font-size: 1.5rem;
+}
 
-            background: #465160;
-        }
+.contact-button small {
+    display: block;
+    color: #697589;
+}
 
+.contact-email {
+    margin-top: 35px;
+    color: #1683ff;
+}
 
-        .file-name {
-            color: #758094;
 
-            font-size: 0.75rem;
-        }
+/* ================================
+   FOOTER
+================================ */
 
+footer {
+    padding: 50px 7%;
 
-        .code {
-            padding: 30px;
+    border-top: 1px solid #18202c;
 
-            font-family: "Courier New", monospace;
+    text-align: center;
 
-            font-size: 0.85rem;
+    color: #5f6b7d;
+}
 
-            line-height: 2;
+.footer-logo {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
 
-            color: #dce2eb;
-        }
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px 0;
+}
 
+.footer-socials a {
+    width: 40px;
+    height: 40px;
 
-        .indent {
-            padding-left: 25px;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    border: 1px solid #202b3c;
+    border-radius: 6px;
 
-        .double-indent {
-            padding-left: 50px;
-        }
+    color: #7d8899;
 
+    transition: 0.3s;
+}
 
-        .purple {
-            color: #c084fc;
-        }
+.footer-socials a:hover {
+    color: #1683ff;
+    border-color: #1683ff;
+}
 
+.copyright {
+    font-size: 0.75rem;
+}
 
-        .blue {
-            color: #60a5fa;
-        }
 
+/* ================================
+   MOBILE
+================================ */
 
-        .green {
-            color: #86efac;
-        }
+@media (max-width: 1000px) {
 
+    .navbar nav {
+        display: none;
 
-        .yellow {
-            color: #facc15;
-        }
+        position: absolute;
 
+        top: 75px;
+        left: 5%;
+        right: 5%;
 
-        .comment {
-            color: #4b5563;
-        }
+        flex-direction: column;
 
+        gap: 0;
 
-        /* ================================
-           SECTIONS
-        ================================= */
+        padding: 15px;
 
-        section {
-            scroll-margin-top: 80px;
-        }
+        background: #080c14;
 
+        border: 1px solid #202b3c;
 
-        .section {
-            padding: 120px 7%;
+        border-radius: 10px;
+    }
 
-            max-width: 1400px;
+    .navbar nav.open {
+        display: flex;
+    }
 
-            margin: auto;
-        }
+    .navbar nav a {
+        padding: 12px;
+    }
 
+    .menu-button {
+        display: flex;
+        margin-left: 15px;
+    }
 
-        .dark-section {
-            max-width: none;
+    .nav-button {
+        display: none;
+    }
 
-            background: #070a10;
-        }
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
+    .code-window {
+        width: 100%;
+        max-width: 600px;
+    }
 
-        .section-title {
-            margin-bottom: 60px;
-        }
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
 
+    .focus-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
 
-        .section-title small {
-            color: #1683ff;
+    .skills-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
 
-            font-size: 0.75rem;
+    .projects {
+        grid-template-columns: 1fr;
+    }
 
-            letter-spacing: 2px;
+    .stats-container {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
 
-            font-weight: bold;
-        }
 
+@media (max-width: 600px) {
 
-        .section-title h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+    .navbar {
+        padding: 0 5%;
+    }
 
-            line-height: 1;
+    .hero {
+        padding: 120px 5% 70px;
+    }
 
-            margin-top: 15px;
+    .hero h1 {
+        font-size: 3.2rem;
+        letter-spacing: -2px;
+    }
 
-            letter-spacing: -3px;
-        }
+    .buttons {
+        flex-direction: column;
+        width: 100%;
+    }
 
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+    }
 
-        .section-title h2 span {
-            color: #1683ff;
-        }
+    .code-window {
+        transform: none;
+    }
 
+    .section {
+        padding: 90px 5%;
+    }
 
-        /* ================================
-           ABOUT
-        ================================= */
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
 
-        .about-grid {
-            display: grid;
+    .focus-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
 
-            grid-template-columns: 1.5fr 1fr;
+    .contact {
+        padding: 100px 5%;
+    }
 
-            gap: 80px;
+    .contact-buttons {
+        flex-direction: column;
+    }
 
-            align-items: center;
-        }
+    .contact-button {
+        width: 100%;
+    }
 
+}
 
-        .about-text {
-            color: #929baa;
-
-            font-size: 1.05rem;
-        }
-
-
-        .about-text p {
-            margin-bottom: 22px;
-        }
-
-
-        .about-card {
-            padding: 40px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #0b111b,
-                    #080b12
-                );
-
-            border: 1px solid #202a39;
-
-            border-radius: 15px;
-
-            transition: 0.3s;
-        }
-
-
-        .about-card:hover {
-            transform: translateY(-8px);
-
-            border-color: #1683ff;
-
-            box-shadow:
-                0 20px 50px rgba(22,131,255,0.1);
-        }
-
-
-        .about-icon {
-            font-family: monospace;
-
-            font-size: 2.5rem;
-
-            color: #1683ff;
-
-            margin-bottom: 20px;
-        }
-
-
-        .about-card h3 {
-            font-size: 1.5rem;
-
-            margin-bottom: 10px;
-        }
-
-
-        .about-card p {
-            color: #707a8b;
-        }
-
-
-        /* ================================
-           SKILLS
-        ================================= */
-
-        .skills-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 18px;
-        }
-
-
-        .skill {
-            padding: 30px;
-
-            background: #080c14;
-
-            border: 1px solid #202a39;
-
-            border-radius: 10px;
-
-            min-height: 220px;
-
-            transition: 0.35s;
-        }
-
-
-        .skill:hover {
-            transform: translateY(-8px);
-
-            border-color: #1683ff;
-
-            box-shadow:
-                0 20px 50px rgba(22,131,255,0.08);
-        }
-
-
-        .skill-number {
-            color: #1683ff;
-
-            font-family: monospace;
-
-            font-size: 0.75rem;
-        }
-
-
-        .skill-icon {
-            margin: 25px 0 18px;
-
-            width: 48px;
-            height: 48px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border: 1px solid #253044;
-
-            border-radius: 7px;
-
-            color: #1683ff;
-
-            font-family: monospace;
-
-            font-weight: bold;
-        }
-
-
-        .skill h3 {
-            margin-bottom: 7px;
-        }
-
-
-        .skill p {
-            color: #707a8b;
-
-            font-size: 0.88rem;
-        }
-
-
-        /* ================================
-           PROJECTS
-        ================================= */
-
-        .projects {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 20px;
-        }
-
-
-        .project {
-            padding: 30px;
-
-            min-height: 310px;
-
-            background: #080c14;
-
-            border: 1px solid #202a39;
-
-            border-radius: 11px;
-
-            transition: 0.35s;
-        }
-
-
-        .project:hover {
-            transform: translateY(-8px);
-
-            border-color: #1683ff;
-
-            box-shadow:
-                0 20px 50px rgba(22,131,255,0.08);
-        }
-
-
-        .project-top {
-            display: flex;
-
-            justify-content: space-between;
-
-            color: #566173;
-
-            font-size: 0.7rem;
-
-            margin-bottom: 55px;
-        }
-
-
-        .project-top span:first-child {
-            color: #1683ff;
-        }
-
-
-        .project h3 {
-            font-size: 1.4rem;
-
-            margin-bottom: 15px;
-        }
-
-
-        .project p {
-            color: #778193;
-
-            font-size: 0.9rem;
-
-            margin-bottom: 25px;
-        }
-
-
-        .tags {
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 8px;
-        }
-
-
-        .tags span {
-            padding: 5px 9px;
-
-            background: #101722;
-
-            color: #8e99aa;
-
-            border-radius: 4px;
-
-            font-size: 0.7rem;
-        }
-
-
-        /* ================================
-           JOURNEY
-        ================================= */
-
-        .timeline {
-            max-width: 800px;
-
-            margin: auto;
-        }
-
-
-        .timeline-item {
-            position: relative;
-
-            padding-left: 35px;
-
-            padding-bottom: 55px;
-
-            border-left: 1px solid #273142;
-        }
-
-
-        .timeline-item:last-child {
-            border-left: none;
-        }
-
-
-        .timeline-dot {
-            position: absolute;
-
-            left: -6px;
-
-            top: 0;
-
-            width: 11px;
-            height: 11px;
-
-            border-radius: 50%;
-
-            background: #1683ff;
-
-            box-shadow: 0 0 18px #1683ff;
-        }
-
-
-        .timeline-year {
-            color: #1683ff;
-
-            font-family: monospace;
-
-            font-size: 0.8rem;
-        }
-
-
-        .timeline h3 {
-            margin: 8px 0;
-        }
-
-
-        .timeline p {
-            color: #737d8d;
-        }
-
-
-        /* ================================
-           CONTACT
-        ================================= */
-
-        .contact {
-            text-align: center;
-
-            padding: 150px 7%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(22,131,255,0.12),
-                    transparent 55%
-                );
-        }
-
-
-        .contact small {
-            color: #1683ff;
-
-            letter-spacing: 2px;
-
-            font-weight: bold;
-        }
-
-
-        .contact h2 {
-            font-size: clamp(2.7rem, 6vw, 5rem);
-
-            line-height: 1;
-
-            letter-spacing: -3px;
-
-            margin: 20px auto;
-        }
-
-
-        .contact h2 span {
-            color: #1683ff;
-        }
-
-
-        .contact p {
-            color: #778193;
-
-            max-width: 550px;
-
-            margin: 0 auto 35px;
-        }
-
-
-        /* ================================
-           FOOTER
-        ================================= */
-
-        footer {
-            padding: 50px 7%;
-
-            text-align: center;
-
-            border-top: 1px solid #18202c;
-
-            color: #566173;
-        }
-
-
-        .footer-logo {
-            color: white;
-
-            font-weight: bold;
-
-            font-size: 1.2rem;
-
-            margin-bottom: 10px;
-        }
-
-
-        .copyright {
-            margin-top: 20px;
-
-            font-size: 0.75rem;
-        }
-
-
-        /* ================================
-           ANIMATIONS
-        ================================= */
-
-        @keyframes heroIn {
-
-            from {
-                opacity: 0;
-
-                transform: translateX(-40px);
-            }
-
-            to {
-                opacity: 1;
-
-                transform: translateX(0);
-            }
-        }
-
-
-        @keyframes codeIn {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    translateX(50px)
-                    rotate(8deg);
-            }
-
-            to {
-                opacity: 1;
-
-                transform:
-                    translateX(0)
-                    rotate(2deg);
-            }
-        }
-
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                box-shadow: 0 0 5px #1683ff;
-            }
-
-            50% {
-                box-shadow: 0 0 25px #1683ff;
-            }
-        }
-
-
-        /* ================================
-           MOBILE
-        ================================= */
-
-        @media (max-width: 1000px) {
-
-            nav {
-                display: none;
-            }
-
-            .nav-button {
-                display: none;
-            }
-
-            .hero {
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-
-            .code-window {
-                width: 100%;
-
-                max-width: 600px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .projects {
-                grid-template-columns: 1fr;
-            }
-        }
-
-
-        @media (max-width: 600px) {
-
-            .navbar {
-                padding: 0 5%;
-            }
-
-            .hero,
-            .section {
-                padding-left: 5%;
-                padding-right: 5%;
-            }
-
-            .hero h1 {
-                font-size: 3rem;
-
-                letter-spacing: -2px;
-            }
-
-            .buttons {
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .code {
-                font-size: 0.7rem;
-
-                padding: 20px;
-            }
-
-            .contact {
-                padding: 100px 5%;
-            }
-        }
-
-    </style>
-
+</style>
 </head>
 
 
 <body>
 
 
-    <!-- ================================
-         NAVIGATION
-    ================================= -->
+<!-- PARTICLES -->
 
-    <header class="navbar">
-
-        <a href="#home" class="logo">
-            <span>&lt;</span>Paul<span>/&gt;</span>
-        </a>
+<div id="particles"></div>
 
 
-        <nav>
+<!-- NAVBAR -->
 
-            <a href="#home">Home</a>
+<header class="navbar">
 
-            <a href="#about">About</a>
+    <a href="#home" class="logo">
+        <span>&lt;</span>Paul<span>/&gt;</span>
+    </a>
 
-            <a href="#skills">Skills</a>
+    <nav id="navMenu">
 
-            <a href="#projects">Projects</a>
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
 
-            <a href="#journey">Journey</a>
+    </nav>
 
-            <a href="#contact">Contact</a>
+    <div class="nav-actions">
 
-        </nav>
-
-
-        <a
-            href="#contact"
-            class="nav-button"
-        >
+        <a href="#contact" class="nav-button">
             Let's Talk
         </a>
 
-    </header>
+        <button class="menu-button" id="menuButton">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </div>
+
+</header>
 
 
+<!-- HERO -->
 
-    <!-- ================================
-         HERO
-    ================================= -->
+<section class="hero" id="home">
 
-    <section
-        class="hero"
-        id="home"
-    >
+    <div class="hero-content">
 
-        <div class="hero-content">
+        <div class="status">
 
-            <div class="status">
+            <span class="status-dot"></span>
 
-                <span class="status-dot"></span>
+            <span id="typingText">
+                SOFTWARE ENGINEER IN THE MAKING
+            </span>
 
-                <span id="typing">
-                    SOFTWARE ENGINEER IN THE MAKING
-                </span>
+        </div>
 
+
+        <p class="hero-intro">
+            Hello, I'm
+        </p>
+
+
+        <h1>
+            Paul
+            <span>Ayotomiwa.</span>
+        </h1>
+
+
+        <h2 class="hero-title">
+
+            Building the future,
+            <br>
+
+            <span>one line of code at a time.</span>
+
+        </h2>
+
+
+        <p class="hero-description">
+
+            I'm a Software Engineering student,
+            developer in progress, and the person
+            behind <strong>Map_Technologies</strong>.
+
+            I'm passionate about learning technology,
+            solving problems, and turning ideas into
+            useful digital experiences.
+
+        </p>
+
+
+        <div class="hero-badge">
+
+            <span>● Nigeria</span>
+
+            <span class="badge-divider">•</span>
+
+            <span>Open to opportunities</span>
+
+        </div>
+
+
+        <div class="buttons">
+
+            <a href="#projects" class="primary-button">
+                &lt;/&gt; View My Work
+            </a>
+
+            <a href="#contact" class="secondary-button">
+                ✈ Let's Work Together
+            </a>
+
+        </div>
+
+
+        <div class="socials">
+
+            <a href="https://github.com/mapboda-afk" target="_blank">
+                GitHub
+            </a>
+
+            <a href="https://wa.me/2349043271748" target="_blank">
+                WhatsApp
+            </a>
+
+            <a href="mailto:adigunpaulayotomiwa@gmail.com">
+                Email
+            </a>
+
+            <a href="tel:+2349043271748">
+                Call
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- CODE WINDOW -->
+
+    <div class="code-window" id="codeWindow">
+
+        <div class="window-top">
+
+            <div class="window-buttons">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
 
+            <span class="file-name">
+                paul.py
+            </span>
 
-            <h1>
-
-                Building the
-
-                <span>future</span>
-
-                <br>
-
-                one line of code at a time.
-
-            </h1>
+        </div>
 
 
-            <p class="hero-description">
+        <div class="code">
 
-                I'm Paul, a Software Engineering student
-                passionate about technology, problem solving,
-                and building useful digital experiences.
+            <div>
+                <span class="purple">class</span>
+                <span class="blue">SoftwareEngineer</span>:
+            </div>
 
+            <div class="indent">
+                name =
+                <span class="green">"Paul"</span>
+            </div>
+
+            <div class="indent">
+                field =
+                <span class="green">"Software Engineering"</span>
+            </div>
+
+            <div class="indent">
+                status =
+                <span class="green">"Learning + Building"</span>
+            </div>
+
+            <div class="indent">
+                company =
+                <span class="green">"Map_Technologies"</span>
+            </div>
+
+            <br>
+
+            <div class="indent">
+                <span class="purple">def</span>
+                <span class="yellow">build_future</span>():
+            </div>
+
+            <div class="double-indent">
+                <span class="blue">return</span>
+                <span class="green">"Keep Learning"</span>
+            </div>
+
+            <div class="double-indent">
+                <span class="blue">return</span>
+                <span class="green">"Keep Building"</span>
+            </div>
+
+            <div class="double-indent">
+                <span class="blue">return</span>
+                <span class="green">"Never Give Up"</span>
+            </div>
+
+            <br>
+
+            <div class="comment">
+                # Map_Technologies
+            </div>
+
+            <div class="comment">
+                # Turning ideas into technology.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="stats-section">
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+            <div class="stat-icon">🎓</div>
+            <div>
+                <strong>100 Level</strong>
+                <span>Software Engineering</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">💻</div>
+            <div>
+                <strong>4+</strong>
+                <span>Technologies Learning</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🚀</div>
+            <div>
+                <strong>2026</strong>
+                <span>Journey Started</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">💡</div>
+            <div>
+                <strong>1 Vision</strong>
+                <span>Map_Technologies</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+    <div class="section-title">
+
+        <small>01 — ABOUT ME</small>
+
+        <h2>
+            More than just
+            <span>code.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-text">
+
+            <p>
+                I'm <strong>Paul Ayotomiwa</strong>,
+                a Software Engineering student passionate
+                about technology, programming,
+                problem solving, and building useful
+                digital experiences.
             </p>
 
+            <p>
+                My journey into technology started with
+                curiosity and a strong desire to understand
+                how the digital world works.
+            </p>
 
-            <div class="buttons">
+            <p>
+                I'm learning every day, making mistakes,
+                fixing them, building projects, and becoming
+                better with every line of code.
+            </p>
 
-                <a
-                    href="#projects"
-                    class="primary-button"
-                >
-                    View My Work →
-                </a>
-
-
-                <a
-                    href="#about"
-                    class="secondary-button"
-                >
-                    About Me
-                </a>
-
-            </div>
-
-
-            <div class="socials">
-
-                <a href="#">GH</a>
-
-                <a href="#">IN</a>
-
-                <a href="mailto:your@email.com">
-                    @
-                </a>
-
-            </div>
+            <p>
+                My long-term goal is to become an exceptional
+                software engineer and build technology that
+                solves real problems.
+            </p>
 
         </div>
 
 
+        <div class="about-side">
 
-        <!-- CODE WINDOW -->
+            <div class="about-card">
 
-        <div class="code-window">
-
-            <div class="window-top">
-
-                <div class="window-buttons">
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
+                <div class="about-icon">
+                    &lt;/&gt;
                 </div>
 
-
-                <span class="file-name">
-                    paul.py
-                </span>
-
-            </div>
-
-
-            <div class="code">
-
-                <div>
-                    <span class="purple">class</span>
-                    <span class="blue">
-                        SoftwareEngineer
-                    </span>:
-                </div>
-
-
-                <div class="indent">
-
-                    name =
-                    <span class="green">
-                        "Paul"
-                    </span>
-
-                </div>
-
-
-                <div class="indent">
-
-                    level =
-                    <span class="green">
-                        "Learning"
-                    </span>
-
-                </div>
-
-
-                <div class="indent">
-
-                    vision =
-                    <span class="green">
-                        "Build Great Things"
-                    </span>
-
-                </div>
-
-
-                <br>
-
-
-                <div class="indent">
-
-                    <span class="purple">
-                        def
-                    </span>
-
-                    <span class="yellow">
-                        build_future
-                    </span>():
-
-                </div>
-
-
-                <div class="double-indent">
-
-                    <span class="blue">
-                        return
-                    </span>
-
-                    <span class="green">
-                        "Never Stop Learning"
-                    </span>
-
-                </div>
-
-
-                <br>
-
-
-                <div class="comment">
-                    # Map_Technologies
-                </div>
-
-
-                <div class="comment">
-                    # The journey starts here...
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ================================
-         ABOUT
-    ================================= -->
-
-    <section
-        class="section"
-        id="about"
-    >
-
-        <div class="section-title">
-
-            <small>
-                01 — ABOUT ME
-            </small>
-
-            <h2>
-                More than just
-                <span>code.</span>
-            </h2>
-
-        </div>
-
-
-        <div class="about-grid">
-
-            <div class="about-text">
+                <h3>
+                    Map_Technologies
+                </h3>
 
                 <p>
-                    I'm Paul, a Software Engineering student
-                    currently building my foundation in
-                    programming, technology and software
-                    development.
-                </p>
-
-
-                <p>
-                    I'm not claiming to know everything yet.
-                    I'm learning every day, building projects,
-                    making mistakes and improving.
-                </p>
-
-
-                <p>
-                    My long-term vision is to become an
-                    exceptional software engineer and build
-                    technology that solves real problems.
+                    A vision to turn ideas into useful
+                    technology.
                 </p>
 
             </div>
@@ -1388,663 +1502,762 @@
             <div class="about-card">
 
                 <div class="about-icon">
-                    &lt;/&gt;
+                    🎯
                 </div>
 
-
                 <h3>
-                    Map_Technologies
+                    My Goal
                 </h3>
 
-
                 <p>
-                    A vision to turn ideas into technology.
+                    Become an outstanding software engineer
+                    while continuously learning and building.
                 </p>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
 
+</section>
 
 
-    <!-- ================================
-         SKILLS
-    ================================= -->
+<!-- FOCUS -->
 
-    <section
-        class="section dark-section"
-        id="skills"
-    >
+<section class="section dark-section">
 
-        <div class="section-title">
+    <div class="section-title">
 
-            <small>
-                02 — SKILLS
-            </small>
-
-            <h2>
-                Currently
-                <span>learning.</span>
-            </h2>
-
-        </div>
-
-
-        <div class="skills-grid">
-
-
-            <div class="skill">
-
-                <span class="skill-number">
-                    01
-                </span>
-
-                <div class="skill-icon">
-                    &lt;/&gt;
-                </div>
-
-                <h3>
-                    HTML
-                </h3>
-
-                <p>
-                    Building the structure of the web.
-                </p>
-
-            </div>
-
-
-            <div class="skill">
-
-                <span class="skill-number">
-                    02
-                </span>
-
-                <div class="skill-icon">
-                    {}
-                </div>
-
-                <h3>
-                    CSS
-                </h3>
-
-                <p>
-                    Designing beautiful user interfaces.
-                </p>
-
-            </div>
-
-
-            <div class="skill">
-
-                <span class="skill-number">
-                    03
-                </span>
-
-                <div class="skill-icon">
-                    JS
-                </div>
-
-                <h3>
-                    JavaScript
-                </h3>
-
-                <p>
-                    Making websites interactive.
-                </p>
-
-            </div>
-
-
-            <div class="skill">
-
-                <span class="skill-number">
-                    04
-                </span>
-
-                <div class="skill-icon">
-                    Py
-                </div>
-
-                <h3>
-                    Python
-                </h3>
-
-                <p>
-                    Learning programming and problem solving.
-                </p>
-
-            </div>
-
-
-            <div class="skill">
-
-                <span class="skill-number">
-                    05
-                </span>
-
-                <div class="skill-icon">
-                    Git
-                </div>
-
-                <h3>
-                    Git
-                </h3>
-
-                <p>
-                    Learning professional code management.
-                </p>
-
-            </div>
-
-
-            <div class="skill">
-
-                <span class="skill-number">
-                    06
-                </span>
-
-                <div class="skill-icon">
-                    +
-                </div>
-
-                <h3>
-                    More Coming
-                </h3>
-
-                <p>
-                    This list grows as I grow.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ================================
-         PROJECTS
-    ================================= -->
-
-    <section
-        class="section"
-        id="projects"
-    >
-
-        <div class="section-title">
-
-            <small>
-                03 — PROJECTS
-            </small>
-
-            <h2>
-                Things I'm
-                <span>building.</span>
-            </h2>
-
-        </div>
-
-
-        <div class="projects">
-
-
-            <article class="project">
-
-                <div class="project-top">
-
-                    <span>
-                        01
-                    </span>
-
-                    <span>
-                        IN PROGRESS
-                    </span>
-
-                </div>
-
-
-                <h3>
-                    Map_Technologies
-                </h3>
-
-
-                <p>
-                    My personal technology vision and portfolio.
-                    This project represents the beginning of my
-                    software engineering journey.
-                </p>
-
-
-                <div class="tags">
-
-                    <span>HTML</span>
-
-                    <span>CSS</span>
-
-                    <span>JavaScript</span>
-
-                </div>
-
-            </article>
-
-
-
-            <article class="project">
-
-                <div class="project-top">
-
-                    <span>
-                        02
-                    </span>
-
-                    <span>
-                        COMING SOON
-                    </span>
-
-                </div>
-
-
-                <h3>
-                    Future Project
-                </h3>
-
-
-                <p>
-                    A new project will appear here as I continue
-                    learning and building.
-                </p>
-
-
-                <div class="tags">
-
-                    <span>???</span>
-
-                </div>
-
-            </article>
-
-
-
-            <article class="project">
-
-                <div class="project-top">
-
-                    <span>
-                        03
-                    </span>
-
-                    <span>
-                        COMING SOON
-                    </span>
-
-                </div>
-
-
-                <h3>
-                    Future Project
-                </h3>
-
-
-                <p>
-                    Every project is another step toward becoming
-                    a better engineer.
-                </p>
-
-
-                <div class="tags">
-
-                    <span>???</span>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ================================
-         JOURNEY
-    ================================= -->
-
-    <section
-        class="section dark-section"
-        id="journey"
-    >
-
-        <div class="section-title">
-
-            <small>
-                04 — MY JOURNEY
-            </small>
-
-            <h2>
-                The journey is
-                <span>just beginning.</span>
-            </h2>
-
-        </div>
-
-
-        <div class="timeline">
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-year">
-                    2026
-                </div>
-
-                <h3>
-                    Started Programming
-                </h3>
-
-                <p>
-                    Began learning programming from scratch
-                    and discovered a passion for software.
-                </p>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-year">
-                    2026
-                </div>
-
-                <h3>
-                    Building My First Projects
-                </h3>
-
-                <p>
-                    Started turning what I learn into real
-                    projects instead of only watching tutorials.
-                </p>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-year">
-                    FUTURE
-                </div>
-
-                <h3>
-                    Become a Great Software Engineer
-                </h3>
-
-                <p>
-                    Keep learning, building and improving
-                    until the goal becomes reality.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ================================
-         CONTACT
-    ================================= -->
-
-    <section
-        class="contact"
-        id="contact"
-    >
-
-        <small>
-            05 — CONTACT
-        </small>
-
+        <small>CURRENT FOCUS</small>
 
         <h2>
-            Let's build something
-            <span>great.</span>
+            What I'm
+            <span>working on.</span>
         </h2>
 
+    </div>
 
-        <p>
-            Have an idea, project or opportunity?
-            I'd love to hear from you.
-        </p>
+
+    <div class="focus-grid">
+
+        <article class="focus-card">
+
+            <span class="focus-number">01</span>
+
+            <i>💻</i>
+
+            <h3>Web Development</h3>
+
+            <p>
+                Building modern websites and learning
+                HTML, CSS and JavaScript.
+            </p>
+
+        </article>
+
+
+        <article class="focus-card">
+
+            <span class="focus-number">02</span>
+
+            <i>🐍</i>
+
+            <h3>Programming</h3>
+
+            <p>
+                Developing my programming foundation
+                with Python.
+            </p>
+
+        </article>
+
+
+        <article class="focus-card">
+
+            <span class="focus-number">03</span>
+
+            <i>⚙</i>
+
+            <h3>Software Engineering</h3>
+
+            <p>
+                Learning the principles and thinking
+                required to become a professional engineer.
+            </p>
+
+        </article>
+
+
+        <article class="focus-card">
+
+            <span class="focus-number">04</span>
+
+            <i>🚀</i>
+
+            <h3>Building Projects</h3>
+
+            <p>
+                Turning what I learn into actual projects.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section class="section" id="skills">
+
+    <div class="section-title">
+
+        <small>02 — SKILLS</small>
+
+        <h2>
+            Technologies I'm
+            <span>learning.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+        <div class="skill">
+            <span class="skill-number">01</span>
+
+            <div class="skill-icon">
+                HTML
+            </div>
+
+            <h3>HTML</h3>
+
+            <p>
+                Building the structure of websites.
+            </p>
+        </div>
+
+
+        <div class="skill">
+            <span class="skill-number">02</span>
+
+            <div class="skill-icon">
+                CSS
+            </div>
+
+            <h3>CSS</h3>
+
+            <p>
+                Creating beautiful interfaces.
+            </p>
+        </div>
+
+
+        <div class="skill">
+            <span class="skill-number">03</span>
+
+            <div class="skill-icon">
+                JS
+            </div>
+
+            <h3>JavaScript</h3>
+
+            <p>
+                Adding interaction and functionality.
+            </p>
+        </div>
+
+
+        <div class="skill">
+            <span class="skill-number">04</span>
+
+            <div class="skill-icon">
+                PY
+            </div>
+
+            <h3>Python</h3>
+
+            <p>
+                Learning programming and problem solving.
+            </p>
+        </div>
+
+
+        <div class="skill">
+            <span class="skill-number">05</span>
+
+            <div class="skill-icon">
+                GIT
+            </div>
+
+            <h3>Git & GitHub</h3>
+
+            <p>
+                Learning professional version control.
+            </p>
+        </div>
+
+
+        <div class="skill">
+            <span class="skill-number">06</span>
+
+            <div class="skill-icon">
+                +
+            </div>
+
+            <h3>Always Learning</h3>
+
+            <p>
+                Continuously expanding my skills.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section class="section dark-section" id="projects">
+
+    <div class="section-title">
+
+        <small>03 — PROJECTS</small>
+
+        <h2>
+            Things I'm
+            <span>building.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="projects">
+
+        <article class="project">
+
+            <div class="project-top">
+                <span>01</span>
+                <span>LIVE</span>
+            </div>
+
+            <div class="project-icon">
+                🌐
+            </div>
+
+            <h3>
+                Map_Technologies Portfolio
+            </h3>
+
+            <p>
+                My personal developer portfolio built
+                to document my journey and showcase my work.
+            </p>
+
+            <div class="tags">
+
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+
+            </div>
+
+            <div class="project-links">
+
+                <a href="#" target="_blank">
+                    Live Site →
+                </a>
+
+                <a href="https://github.com/mapboda-afk"
+                   target="_blank">
+                    GitHub →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="project">
+
+            <div class="project-top">
+                <span>02</span>
+                <span>BUILDING</span>
+            </div>
+
+            <div class="project-icon">
+                💻
+            </div>
+
+            <h3>
+                Future Web Project
+            </h3>
+
+            <p>
+                A future project built as I continue
+                developing my frontend and JavaScript skills.
+            </p>
+
+            <div class="tags">
+                <span>JavaScript</span>
+                <span>UI</span>
+                <span>Coming Soon</span>
+            </div>
+
+        </article>
+
+
+        <article class="project">
+
+            <div class="project-top">
+                <span>03</span>
+                <span>PLANNED</span>
+            </div>
+
+            <div class="project-icon">
+                💡
+            </div>
+
+            <h3>
+                Map_Technologies Project
+            </h3>
+
+            <p>
+                A future technology project focused on
+                turning a real-world idea into a useful solution.
+            </p>
+
+            <div class="tags">
+                <span>Future</span>
+                <span>Software</span>
+                <span>Innovation</span>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- JOURNEY -->
+
+<section class="section" id="journey">
+
+    <div class="section-title">
+
+        <small>04 — MY JOURNEY</small>
+
+        <h2>
+            The journey is
+            <span>just beginning.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">
+                2026
+            </div>
+
+            <h3>
+                Started Programming
+            </h3>
+
+            <p>
+                Began learning programming from scratch
+                and discovered a passion for software.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">
+                2026
+            </div>
+
+            <h3>
+                Built My First Portfolio
+            </h3>
+
+            <p>
+                Turned what I was learning into a real
+                website and started building projects.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">
+                NOW
+            </div>
+
+            <h3>
+                Learning & Building
+            </h3>
+
+            <p>
+                Continuing to improve programming,
+                web development and software engineering.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-year">
+                FUTURE
+            </div>
+
+            <h3>
+                Become an Exceptional Engineer
+            </h3>
+
+            <p>
+                Keep learning, building and solving
+                meaningful problems with technology.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <small>
+        05 — CONTACT
+    </small>
+
+    <h2>
+        Let's build something
+        <span>great.</span>
+    </h2>
+
+    <p>
+        Have an idea, website, project or opportunity
+        you'd like to discuss?
+    </p>
+
+
+    <div class="contact-buttons">
+
+        <a
+            href="https://wa.me/2349043271748"
+            target="_blank"
+            class="contact-button"
+        >
+
+            <i>💬</i>
+
+            <span>
+                <small>WhatsApp</small>
+                Chat With Me
+            </span>
+
+        </a>
 
 
         <a
-            href="mailto:your@email.com"
-            class="primary-button"
+            href="tel:+2349043271748"
+            class="contact-button"
         >
-            Get In Touch →
+
+            <i>📞</i>
+
+            <span>
+                <small>Phone</small>
+                0904 327 1748
+            </span>
+
         </a>
 
-    </section>
+
+        <a
+            href="mailto:adigunpaulayotomiwa@gmail.com"
+            class="contact-button"
+        >
+
+            <i>✉</i>
+
+            <span>
+                <small>Email</small>
+                Send Me an Email
+            </span>
+
+        </a>
+
+    </div>
 
 
+    <div class="contact-email">
 
-    <!-- ================================
-         FOOTER
-    ================================= -->
+        ✉
+        adigunpaulayotomiwa@gmail.com
 
-    <footer>
+    </div>
 
-        <div class="footer-logo">
-            &lt;Paul/&gt;
-        </div>
+</section>
 
 
-        <p>
-            Building the future, one line of code at a time.
-        </p>
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">
+        &lt;Paul/&gt;
+    </div>
+
+    <p>
+        Building the future, one line of code at a time.
+    </p>
 
 
-        <p class="copyright">
-            © 2026 Paul. Built with HTML, CSS & JavaScript.
-        </p>
+    <div class="footer-socials">
 
-    </footer>
+        <a href="https://github.com/mapboda-afk"
+           target="_blank">
+            GitHub
+        </a>
 
+        <a href="https://wa.me/2349043271748"
+           target="_blank">
+            WhatsApp
+        </a>
 
+        <a href="mailto:adigunpaulayotomiwa@gmail.com">
+            Email
+        </a>
 
-    <!-- ================================
-         JAVASCRIPT
-    ================================= -->
-
-    <script>
-
-        /* ==============================
-           TYPING EFFECT
-        ============================== */
-
-        const typing =
-            document.getElementById("typing");
+    </div>
 
 
-        const messages = [
-            "SOFTWARE ENGINEER IN THE MAKING",
-            "BUILDER • LEARNER • DREAMER",
-            "FUTURE SOFTWARE ENGINEER",
-            "BUILDING MAP_TECHNOLOGIES"
-        ];
+    <div class="copyright">
+        © 2026 Paul Ayotomiwa.
+        Built with HTML, CSS & JavaScript.
+    </div>
+
+</footer>
 
 
-        let messageIndex = 0;
+<script>
 
-        let characterIndex = 0;
+/* ================================
+   MOBILE MENU
+================================ */
 
-        let deleting = false;
+const menuButton = document.getElementById("menuButton");
+const navMenu = document.getElementById("navMenu");
 
+if (menuButton && navMenu) {
 
-        function typeWriter() {
+    menuButton.addEventListener("click", function () {
 
-            const message =
-                messages[messageIndex];
+        navMenu.classList.toggle("open");
 
+    });
 
-            if (!deleting) {
-
-                characterIndex++;
-
-
-                typing.textContent =
-                    message.substring(
-                        0,
-                        characterIndex
-                    );
+}
 
 
-                if (
-                    characterIndex ===
-                    message.length
-                ) {
+/* ================================
+   TYPING EFFECT
+================================ */
 
-                    deleting = true;
+const typingText = document.getElementById("typingText");
 
-                    setTimeout(
-                        typeWriter,
-                        1800
-                    );
+const messages = [
+    "SOFTWARE ENGINEER IN THE MAKING",
+    "BUILDER • LEARNER • DREAMER",
+    "FUTURE SOFTWARE ENGINEER",
+    "BUILDING MAP_TECHNOLOGIES"
+];
 
-                    return;
+let messageIndex = 0;
+let characterIndex = 0;
+let deleting = false;
 
-                }
+function typeWriter() {
 
-            } else {
+    if (!typingText) return;
 
-                characterIndex--;
+    const message = messages[messageIndex];
 
+    if (!deleting) {
 
-                typing.textContent =
-                    message.substring(
-                        0,
-                        characterIndex
-                    );
+        characterIndex++;
 
+        typingText.textContent =
+            message.substring(0, characterIndex);
 
-                if (characterIndex === 0) {
+        if (characterIndex === message.length) {
 
-                    deleting = false;
+            deleting = true;
 
-                    messageIndex =
-                        (messageIndex + 1)
-                        % messages.length;
+            setTimeout(typeWriter, 1800);
 
-                }
+            return;
+        }
 
-            }
+    } else {
 
+        characterIndex--;
 
-            setTimeout(
-                typeWriter,
-                deleting ? 45 : 75
-            );
+        typingText.textContent =
+            message.substring(0, characterIndex);
+
+        if (characterIndex === 0) {
+
+            deleting = false;
+
+            messageIndex =
+                (messageIndex + 1) % messages.length;
 
         }
 
+    }
 
-        typeWriter();
+    setTimeout(
+        typeWriter,
+        deleting ? 45 : 75
+    );
+}
 
-
-        /* ==============================
-           CODE WINDOW EFFECT
-        ============================== */
-
-        const codeWindow =
-            document.querySelector(
-                ".code-window"
-            );
+typeWriter();
 
 
-        if (codeWindow) {
+/* ================================
+   PARTICLES
+================================ */
 
-            codeWindow.addEventListener(
-                "mousemove",
-                function(event) {
+const particles =
+    document.getElementById("particles");
 
-                    if (window.innerWidth < 800) {
-                        return;
-                    }
+if (particles) {
 
+    for (let i = 0; i < 35; i++) {
 
-                    const rect =
-                        codeWindow.getBoundingClientRect();
+        const particle =
+            document.createElement("span");
 
+        particle.className = "particle";
 
-                    const x =
-                        event.clientX -
-                        rect.left;
+        particle.style.left =
+            Math.random() * 100 + "%";
 
+        particle.style.animationDelay =
+            Math.random() * 8 + "s";
 
-                    const y =
-                        event.clientY -
-                        rect.top;
+        particle.style.animationDuration =
+            5 + Math.random() * 8 + "s";
 
-
-                    const rotateX =
-                        ((y / rect.height) - 0.5)
-                        * -8;
-
-
-                    const rotateY =
-                        ((x / rect.width) - 0.5)
-                        * 8;
+        particles.appendChild(particle);
+    }
+}
 
 
-                    codeWindow.style.transform =
-                        "perspective(1000px) " +
-                        "rotateX(" +
-                        rotateX +
-                        "deg) " +
-                        "rotateY(" +
-                        rotateY +
-                        "deg)";
+/* ================================
+   CODE WINDOW EFFECT
+================================ */
 
-                }
-            );
+const codeWindow =
+    document.getElementById("codeWindow");
 
+if (codeWindow && window.innerWidth > 700) {
 
-            codeWindow.addEventListener(
-                "mouseleave",
-                function() {
+    codeWindow.addEventListener(
+        "mousemove",
+        function(event) {
 
-                    codeWindow.style.transform =
-                        "rotate(2deg)";
+            const rect =
+                codeWindow.getBoundingClientRect();
 
-                }
-            );
+            const x =
+                event.clientX - rect.left;
+
+            const y =
+                event.clientY - rect.top;
+
+            const rotateX =
+                ((y / rect.height) - 0.5) * -8;
+
+            const rotateY =
+                ((x / rect.width) - 0.5) * 8;
+
+            codeWindow.style.transform =
+                "perspective(1000px) " +
+                "rotateX(" +
+                rotateX +
+                "deg) " +
+                "rotateY(" +
+                rotateY +
+                "deg)";
 
         }
+    );
 
 
-        /* ==============================
-           CONSOLE MESSAGE
-        ============================== */
+    codeWindow.addEventListener(
+        "mouseleave",
+        function() {
 
-        console.log(
-            "🚀 Map_Technologies is running!"
-        );
+            codeWindow.style.transform =
+                "rotate(2deg)";
 
-        console.log(
-            "Welcome to Paul's portfolio."
-        );
+        }
+    );
 
-    </script>
+}
+
+
+/* ================================
+   NAVIGATION
+================================ */
+
+const links =
+    document.querySelectorAll(
+        ".navbar nav a"
+    );
+
+links.forEach(function(link) {
+
+    link.addEventListener(
+        "click",
+        function() {
+
+            navMenu.classList.remove("open");
+
+        }
+    );
+
+});
+
+</script>
 
 </body>
-
 </html>
