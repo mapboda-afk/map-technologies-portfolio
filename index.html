@@ -3,2261 +3,447 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="description" content="Map_Technologies creates modern, responsive business websites, portfolio websites, and landing pages. Founded by Paul Ayotomiwa, Software Engineering student at FUOYE.">
+<meta property="og:title" content="Paul Ayotomiwa | Map_Technologies">
+<meta property="og:description" content="Modern business websites, portfolio websites, and landing pages.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305070d'/%3E%3Cpath d='M24 18 10 32l14 14M40 18l14 14-14 14' fill='none' stroke='%231683ff' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M36 15 28 49' stroke='%23ffffff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305070d'/%3E%3Cpath d='M24 18 10 32l14 14M40 18l14 14-14 14' fill='none' stroke='%231683ff' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M36 15 28 49' stroke='%23ffffff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <title>Paul Ayotomiwa | Map_Technologies</title>
-
 <style>
-
-/* ================================
-   RESET
-================================ */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #05070d;
-    color: #ffffff;
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-button {
-    font-family: inherit;
-}
-
-
-/* ================================
-   BACKGROUND
-================================ */
-
-body::before {
-    content: "";
-    position: fixed;
-    width: 500px;
-    height: 500px;
-    top: -250px;
-    right: -150px;
-    background: #006eff;
-    opacity: 0.12;
-    filter: blur(150px);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: -2;
-}
-
-body::after {
-    content: "";
-    position: fixed;
-    width: 450px;
-    height: 450px;
-    bottom: -250px;
-    left: -150px;
-    background: #008cff;
-    opacity: 0.08;
-    filter: blur(150px);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: -2;
-}
-
-
-/* ================================
-   PARTICLES
-================================ */
-
-#particles {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: -1;
-}
-
-.particle {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    background: #1683ff;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #1683ff;
-    animation: float 8s linear infinite;
-}
-
-@keyframes float {
-    from {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
-
-    20% {
-        opacity: 0.8;
-    }
-
-    80% {
-        opacity: 0.4;
-    }
-
-    to {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
-}
-
-
-/* ================================
-   NAVBAR
-================================ */
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 75px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 7%;
-
-    background: rgba(5, 7, 13, 0.92);
-    backdrop-filter: blur(15px);
-
-    border-bottom: 1px solid #172033;
-
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 900;
-}
-
-.logo span {
-    color: #1683ff;
-}
-
-.navbar nav {
-    display: flex;
-    gap: 30px;
-}
-
-.navbar nav a {
-    color: #8b95a7;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-.navbar nav a:hover,
-.navbar nav a.active {
-    color: #1683ff;
-}
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-}
-
-.nav-button {
-    padding: 10px 18px;
-    border: 1px solid #1683ff;
-    border-radius: 6px;
-    color: #1683ff;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.nav-button:hover {
-    background: #1683ff;
-    color: white;
-    box-shadow: 0 0 25px rgba(22,131,255,0.4);
-}
-
-.menu-button {
-    display: none;
-    width: 44px;
-    height: 44px;
-    background: transparent;
-    border: 1px solid #263142;
-    border-radius: 6px;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    padding: 10px;
-}
-
-.menu-button span {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: white;
-}
-
-
-/* ================================
-   HERO
-================================ */
-
-.hero {
-    min-height: 100vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 60px;
-
-    padding: 140px 7% 80px;
-}
-
-.hero-content {
-    max-width: 680px;
-}
-
-.status {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    color: #1683ff;
-
-    font-size: 0.75rem;
-    font-weight: bold;
-
-    letter-spacing: 1.5px;
-
-    margin-bottom: 25px;
-}
-
-.status-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #1683ff;
-    box-shadow: 0 0 15px #1683ff;
-}
-
-.hero-intro {
-    color: #8893a5;
-    margin-bottom: 5px;
-}
-
-.hero h1 {
-    font-size: clamp(3.5rem, 7vw, 6rem);
-    line-height: 1;
-    letter-spacing: -4px;
-    margin-bottom: 25px;
-}
-
-.hero h1 span {
-    color: #1683ff;
-    text-shadow: 0 0 35px rgba(22,131,255,0.3);
-}
-
-.hero-title {
-    font-size: clamp(1.7rem, 3vw, 2.8rem);
-    line-height: 1.15;
-    margin-bottom: 25px;
-}
-
-.hero-title span {
-    color: #1683ff;
-}
-
-.hero-description {
-    max-width: 600px;
-    color: #8c96a7;
-    margin-bottom: 25px;
-}
-
-.hero-badge {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-
-    color: #7e899a;
-
-    font-size: 0.8rem;
-
-    margin-bottom: 30px;
-}
-
-.hero-badge i {
-    color: #1683ff;
-}
-
-.badge-divider {
-    color: #293446;
-}
-
-
-/* ================================
-   BUTTONS
-================================ */
-
-.buttons {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-}
-
-.primary-button,
-.secondary-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-
-    padding: 14px 22px;
-
-    border-radius: 7px;
-
-    font-weight: bold;
-
-    transition: 0.3s;
-}
-
-.primary-button {
-    background: #1683ff;
-    color: white;
-    box-shadow: 0 0 25px rgba(22,131,255,0.2);
-}
-
-.primary-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(22,131,255,0.35);
-}
-
-.secondary-button {
-    border: 1px solid #273244;
-    color: #d5dbe5;
-}
-
-.secondary-button:hover {
-    border-color: #1683ff;
-    color: #1683ff;
-    transform: translateY(-3px);
-}
-
-
-/* ================================
-   SOCIALS
-================================ */
-
-.socials {
-    display: flex;
-    gap: 10px;
-}
-
-.socials a {
-    width: 42px;
-    height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid #202b3c;
-    border-radius: 7px;
-
-    color: #8994a6;
-
-    font-size: 0.8rem;
-
-    transition: 0.3s;
-}
-
-.socials a:hover {
-    color: #1683ff;
-    border-color: #1683ff;
-    transform: translateY(-3px);
-}
-
-
-/* ================================
-   CODE WINDOW
-================================ */
-
-.code-window {
-    width: 500px;
-
-    background: #080c14;
-
-    border: 1px solid #202b3c;
-
-    border-radius: 12px;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,0.6),
-        0 0 40px rgba(22,131,255,0.1);
-
-    transform: rotate(2deg);
-
-    transition: 0.3s;
-}
-
-.window-top {
-    height: 45px;
-
-    display: flex;
-    align-items: center;
-
-    padding: 0 15px;
-
-    background: #0c111a;
-
-    border-bottom: 1px solid #202b3c;
-}
-
-.window-buttons {
-    display: flex;
-    gap: 7px;
-    margin-right: 20px;
-}
-
-.window-buttons span {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #405066;
-}
-
-.file-name {
-    color: #7b8799;
-    font-size: 0.75rem;
-}
-
-.code {
-    padding: 30px;
-
-    color: #d8dee8;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 0.9rem;
-
-    line-height: 2;
-}
-
-.indent {
-    padding-left: 25px;
-}
-
-.double-indent {
-    padding-left: 50px;
-}
-
-.purple {
-    color: #c084fc;
-}
-
-.blue {
-    color: #60a5fa;
-}
-
-.green {
-    color: #86efac;
-}
-
-.yellow {
-    color: #facc15;
-}
-
-.comment {
-    color: #526074;
-}
-
-
-/* ================================
-   GENERAL SECTION
-================================ */
-
-.section {
-    padding: 110px 7%;
-    max-width: 1400px;
-    margin: auto;
-}
-
-.dark-section {
-    max-width: none;
-    background: #070a10;
-}
-
-.section-title {
-    margin-bottom: 60px;
-}
-
-.section-title small {
-    color: #1683ff;
-    font-size: 0.75rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.section-title h2 {
-    font-size: clamp(2.3rem, 5vw, 4rem);
-    line-height: 1;
-    margin-top: 12px;
-    letter-spacing: -2px;
-}
-
-.section-title h2 span {
-    color: #1683ff;
-}
-
-
-/* ================================
-   STATS
-================================ */
-
-.stats-section {
-    padding: 30px 7%;
-    border-top: 1px solid #151e2c;
-    border-bottom: 1px solid #151e2c;
-    background: #060910;
-}
-
-.stats-container {
-    max-width: 1300px;
-    margin: auto;
-
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-
-    gap: 15px;
-}
-
-.stat-card {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-
-    padding: 20px;
-
-    background: #080c14;
-
-    border: 1px solid #1b2636;
-
-    border-radius: 9px;
-}
-
-.stat-icon {
-    color: #1683ff;
-    font-size: 1.4rem;
-}
-
-.stat-card strong,
-.stat-card span {
-    display: block;
-}
-
-.stat-card strong {
-    color: white;
-}
-
-.stat-card div span {
-    color: #697589;
-    font-size: 0.75rem;
-}
-
-
-/* ================================
-   ABOUT
-================================ */
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 70px;
-}
-
-.about-text {
-    color: #8d97a8;
-    font-size: 1rem;
-}
-
-.about-text p {
-    margin-bottom: 22px;
-}
-
-.about-side {
-    display: grid;
-    gap: 18px;
-}
-
-.about-card {
-    padding: 35px;
-
-    background: #080c14;
-
-    border: 1px solid #202b3c;
-
-    border-radius: 12px;
-
-    transition: 0.3s;
-}
-
-.about-card:hover {
-    border-color: #1683ff;
-    transform: translateY(-6px);
-}
-
-.about-icon {
-    color: #1683ff;
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.about-card h3 {
-    margin-bottom: 10px;
-}
-
-.about-card p {
-    color: #717d90;
-}
-
-
-/* ================================
-   FOCUS
-================================ */
-
-.focus-grid {
-    max-width: 1200px;
-    margin: auto;
-
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-
-    gap: 18px;
-}
-
-.focus-card {
-    position: relative;
-
-    padding: 30px;
-
-    background: #080c14;
-
-    border: 1px solid #202b3c;
-
-    border-radius: 11px;
-
-    transition: 0.3s;
-}
-
-.focus-card:hover {
-    transform: translateY(-7px);
-    border-color: #1683ff;
-}
-
-.focus-number {
-    color: #1683ff;
-    font-family: monospace;
-    font-size: 0.75rem;
-}
-
-.focus-card > i {
-    display: block;
-    color: #1683ff;
-    font-size: 2rem;
-    margin: 25px 0 15px;
-}
-
-.focus-card p {
-    color: #707b8e;
-    font-size: 0.88rem;
-}
-
-
-/* ================================
-   SKILLS
-================================ */
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 18px;
-}
-
-.skill {
-    padding: 30px;
-
-    min-height: 220px;
-
-    background: #080c14;
-
-    border: 1px solid #202b3c;
-
-    border-radius: 11px;
-
-    transition: 0.3s;
-}
-
-.skill:hover {
-    transform: translateY(-7px);
-    border-color: #1683ff;
-}
-
-.skill-number {
-    color: #1683ff;
-    font-family: monospace;
-}
-
-.skill-icon {
-    width: 48px;
-    height: 48px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin: 22px 0 15px;
-
-    border: 1px solid #243043;
-
-    border-radius: 8px;
-
-    color: #1683ff;
-
-    font-size: 1.4rem;
-}
-
-.skill p {
-    color: #707b8e;
-    font-size: 0.88rem;
-}
-
-
-/* ================================
-   PROJECTS
-================================ */
-
-.projects {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 20px;
-}
-
-.project {
-    padding: 30px;
-
-    background: #080c14;
-
-    border: 1px solid #202b3c;
-
-    border-radius: 12px;
-
-    transition: 0.3s;
-}
-
-.project:hover {
-    transform: translateY(-7px);
-    border-color: #1683ff;
-}
-
-.project-top {
-    display: flex;
-    justify-content: space-between;
-
-    color: #1683ff;
-
-    font-size: 0.7rem;
-
-    margin-bottom: 40px;
-}
-
-.project-icon {
-    color: #1683ff;
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.project p {
-    color: #717d90;
-    margin: 15px 0 25px;
-}
-
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-}
-
-.tags span {
-    padding: 5px 9px;
-    background: #101722;
-    color: #8d98a9;
-    border-radius: 4px;
-    font-size: 0.7rem;
-}
-
-.project-links {
-    display: flex;
-    gap: 18px;
-    margin-top: 25px;
-}
-
-.project-links a {
-    color: #1683ff;
-    font-size: 0.8rem;
-}
-
-
-/* ================================
-   JOURNEY
-================================ */
-
-.timeline {
-    max-width: 800px;
-    margin: auto;
-}
-
-.timeline-item {
-    position: relative;
-
-    padding-left: 35px;
-
-    padding-bottom: 55px;
-
-    border-left: 1px solid #253044;
-}
-
-.timeline-item:last-child {
-    border-left: none;
-}
-
-.timeline-dot {
-    position: absolute;
-
-    left: -6px;
-    top: 3px;
-
-    width: 11px;
-    height: 11px;
-
-    border-radius: 50%;
-
-    background: #1683ff;
-
-    box-shadow: 0 0 15px #1683ff;
-}
-
-.timeline-year {
-    color: #1683ff;
-    font-family: monospace;
-    font-size: 0.8rem;
-}
-
-.timeline-item h3 {
-    margin: 7px 0;
-}
-
-.timeline-item p {
-    color: #717d90;
-}
-
-
-/* ================================
-   CONTACT
-================================ */
-
-.contact {
-    padding: 130px 7%;
-
-    text-align: center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(22,131,255,0.12),
-            transparent 60%
-        );
-}
-
-.contact > small {
-    color: #1683ff;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.contact h2 {
-    max-width: 800px;
-
-    margin: 15px auto 20px;
-
-    font-size: clamp(2.5rem,6vw,5rem);
-
-    line-height: 1;
-}
-
-.contact h2 span {
-    color: #1683ff;
-}
-
-.contact > p {
-    max-width: 600px;
-    margin: auto;
-    color: #778294;
-}
-
-.contact-buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-
-    margin-top: 40px;
-}
-
-.contact-button {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-
-    padding: 16px 20px;
-
-    min-width: 190px;
-
-    background: #080c14;
-
-    border: 1px solid #202b3c;
-
-    border-radius: 9px;
-
-    text-align: left;
-
-    transition: 0.3s;
-}
-
-.contact-button:hover {
-    border-color: #1683ff;
-    transform: translateY(-5px);
-}
-
-.contact-button > i {
-    color: #1683ff;
-    font-size: 1.5rem;
-}
-
-.contact-button small {
-    display: block;
-    color: #697589;
-}
-
-.contact-email {
-    margin-top: 35px;
-    color: #1683ff;
-}
-
-
-/* ================================
-   FOOTER
-================================ */
-
-footer {
-    padding: 50px 7%;
-
-    border-top: 1px solid #18202c;
-
-    text-align: center;
-
-    color: #5f6b7d;
-}
-
-.footer-logo {
-    color: white;
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-.footer-socials {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 25px 0;
-}
-
-.footer-socials a {
-    width: 40px;
-    height: 40px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid #202b3c;
-    border-radius: 6px;
-
-    color: #7d8899;
-
-    transition: 0.3s;
-}
-
-.footer-socials a:hover {
-    color: #1683ff;
-    border-color: #1683ff;
-}
-
-.copyright {
-    font-size: 0.75rem;
-}
-
-
-/* ================================
-   MOBILE
-================================ */
-
-@media (max-width: 1000px) {
-
-    .navbar nav {
-        display: none;
-
-        position: absolute;
-
-        top: 75px;
-        left: 5%;
-        right: 5%;
-
-        flex-direction: column;
-
-        gap: 0;
-
-        padding: 15px;
-
-        background: #080c14;
-
-        border: 1px solid #202b3c;
-
-        border-radius: 10px;
-    }
-
-    .navbar nav.open {
-        display: flex;
-    }
-
-    .navbar nav a {
-        padding: 12px;
-    }
-
-    .menu-button {
-        display: flex;
-        margin-left: 15px;
-    }
-
-    .nav-button {
-        display: none;
-    }
-
-    .hero {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .code-window {
-        width: 100%;
-        max-width: 600px;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .focus-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .skills-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .projects {
-        grid-template-columns: 1fr;
-    }
-
-    .stats-container {
-        grid-template-columns: repeat(2,1fr);
-    }
-}
-
-
-@media (max-width: 600px) {
-
-    .navbar {
-        padding: 0 5%;
-    }
-
-    .hero {
-        padding: 120px 5% 70px;
-    }
-
-    .hero h1 {
-        font-size: 3.2rem;
-        letter-spacing: -2px;
-    }
-
-    .buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .primary-button,
-    .secondary-button {
-        width: 100%;
-    }
-
-    .code-window {
-        transform: none;
-    }
-
-    .section {
-        padding: 90px 5%;
-    }
-
-    .stats-container {
-        grid-template-columns: 1fr;
-    }
-
-    .focus-grid,
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact {
-        padding: 100px 5%;
-    }
-
-    .contact-buttons {
-        flex-direction: column;
-    }
-
-    .contact-button {
-        width: 100%;
-    }
-
-}
+:root{--bg:#05070d;--panel:#080c14;--blue:#1683ff;--muted:#8c96a7;--border:#202b3c}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#fff;line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+body::before,body::after{content:"";position:fixed;width:500px;height:500px;border-radius:50%;filter:blur(150px);pointer-events:none;z-index:-2}
+body::before{top:-250px;right:-150px;background:#006eff;opacity:.12}
+body::after{bottom:-250px;left:-150px;background:#008cff;opacity:.08}
+#particles{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-1}
+.particle{position:absolute;width:3px;height:3px;background:var(--blue);border-radius:50%;box-shadow:0 0 10px var(--blue);animation:float 8s linear infinite}
+@keyframes float{from{transform:translateY(100vh);opacity:0}20%{opacity:.8}80%{opacity:.4}to{transform:translateY(-100px);opacity:0}}
+.navbar{position:fixed;top:0;left:0;width:100%;min-height:75px;display:flex;align-items:center;justify-content:space-between;padding:0 7%;background:rgba(5,7,13,.92);backdrop-filter:blur(15px);border-bottom:1px solid #172033;z-index:1000}
+.logo{font-size:1.35rem;font-weight:900;white-space:nowrap}
+.logo span{color:var(--blue)}
+.navbar nav{display:flex;gap:25px}
+.navbar nav a{color:#8b95a7;font-size:.9rem;transition:.3s}
+.navbar nav a:hover,.navbar nav a.active{color:var(--blue)}
+.nav-actions{display:flex;align-items:center}
+.nav-button{padding:10px 18px;border:1px solid var(--blue);border-radius:6px;color:var(--blue);font-weight:bold;transition:.3s}
+.nav-button:hover{background:var(--blue);color:white;box-shadow:0 0 25px #1683ff66}
+.menu-button{display:none;width:44px;height:44px;background:transparent;border:1px solid #263142;border-radius:6px;flex-direction:column;justify-content:center;gap:5px;padding:10px;cursor:pointer}
+.menu-button span{display:block;width:100%;height:2px;background:white}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:space-between;gap:60px;padding:140px 7% 80px}
+.hero-content{max-width:680px;min-width:0}
+.status{display:flex;align-items:center;gap:10px;color:var(--blue);font-size:.75rem;font-weight:bold;letter-spacing:1.5px;margin-bottom:25px}
+.status-dot{width:8px;height:8px;flex-shrink:0;border-radius:50%;background:var(--blue);box-shadow:0 0 15px var(--blue)}
+.hero-intro{color:#8893a5;margin-bottom:5px}
+.hero h1{font-size:clamp(3rem,7vw,6rem);line-height:1.05;letter-spacing:-4px;margin-bottom:25px;overflow-wrap:anywhere}
+.hero h1 span{color:var(--blue);text-shadow:0 0 35px #1683ff4d}
+.hero-title{font-size:clamp(1.7rem,3vw,2.8rem);line-height:1.15;margin-bottom:25px}
+.hero-title span{color:var(--blue)}
+.hero-description{max-width:600px;color:var(--muted);margin-bottom:25px}
+.hero-badge{display:flex;align-items:center;flex-wrap:wrap;gap:10px;color:#7e899a;font-size:.8rem;margin-bottom:30px}
+.badge-divider{color:#293446}
+.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.primary-button,.secondary-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 22px;border-radius:7px;font-weight:bold;transition:.3s}
+.primary-button{background:var(--blue);color:white;box-shadow:0 0 25px #1683ff33}
+.primary-button:hover{transform:translateY(-3px);box-shadow:0 12px 35px #1683ff59}
+.secondary-button{border:1px solid #273244;color:#d5dbe5}
+.secondary-button:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-3px)}
+.socials{display:flex;gap:10px;flex-wrap:wrap}
+.socials a{min-height:40px;padding:0 12px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:7px;color:#8994a6;font-size:.8rem;transition:.3s}
+.socials a:hover{color:var(--blue);border-color:var(--blue);transform:translateY(-3px)}
+.code-window{width:500px;max-width:100%;flex-shrink:0;background:var(--panel);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 30px 80px #0009,0 0 40px #1683ff1a;transform:rotate(2deg);transition:transform .2s}
+.window-top{height:45px;display:flex;align-items:center;padding:0 15px;background:#0c111a;border-bottom:1px solid var(--border)}
+.window-buttons{display:flex;gap:7px;margin-right:20px}
+.window-buttons span{width:10px;height:10px;border-radius:50%;background:#405066}
+.file-name{color:#7b8799;font-size:.75rem}
+.code{padding:30px;color:#d8dee8;font-family:"Courier New",monospace;font-size:clamp(.68rem,.9vw,.9rem);line-height:2;overflow-x:auto}
+.indent{padding-left:25px}.double-indent{padding-left:50px}
+.purple{color:#c084fc}.blue{color:#60a5fa}.green{color:#86efac}.yellow{color:#facc15}.comment{color:#526074}
+.section{padding:110px 7%;max-width:1400px;margin:auto}
+.dark-section{max-width:none;background:#070a10}
+.section-title{margin-bottom:60px}
+.section-title small{color:var(--blue);font-size:.75rem;font-weight:bold;letter-spacing:2px}
+.section-title h2{font-size:clamp(2.3rem,5vw,4rem);line-height:1.1;margin-top:12px;letter-spacing:-2px}
+.section-title h2 span{color:var(--blue)}
+.stats-section{padding:30px 7%;border-top:1px solid #151e2c;border-bottom:1px solid #151e2c;background:#060910}
+.stats-container{max-width:1300px;margin:auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.stat-card{display:flex;align-items:center;gap:15px;padding:20px;background:var(--panel);border:1px solid #1b2636;border-radius:9px;min-width:0}
+.stat-icon{color:var(--blue);font-size:1.4rem}
+.stat-card strong,.stat-card span{display:block}
+.stat-card strong{color:white}
+.stat-card div span{color:#697589;font-size:.75rem}
+.about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:70px}
+.about-text{color:#8d97a8;font-size:1rem}
+.about-text p{margin-bottom:22px}
+.about-side{display:grid;gap:18px}
+.about-card{padding:35px;background:var(--panel);border:1px solid var(--border);border-radius:12px;transition:.3s}
+.about-card:hover{border-color:var(--blue);transform:translateY(-6px)}
+.about-icon{color:var(--blue);font-size:2rem;margin-bottom:20px}
+.about-card h3{margin-bottom:10px}
+.about-card p,.focus-card p,.skill p,.project p,.timeline-item p{color:#717d90}
+.focus-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.focus-card{padding:30px;background:var(--panel);border:1px solid var(--border);border-radius:11px;transition:.3s}
+.focus-card:hover{transform:translateY(-7px);border-color:var(--blue)}
+.focus-number,.skill-number{color:var(--blue);font-family:monospace;font-size:.8rem}
+.focus-card>i{display:block;color:var(--blue);font-size:2rem;margin:25px 0 15px;font-style:normal}
+.focus-card p{font-size:.88rem;margin-top:8px}
+.skills-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.skill{padding:30px;min-height:220px;background:var(--panel);border:1px solid var(--border);border-radius:11px;transition:.3s}
+.skill:hover{transform:translateY(-7px);border-color:var(--blue)}
+.skill-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;margin:22px 0 15px;border:1px solid #243043;border-radius:8px;color:var(--blue);font-size:1.1rem;font-weight:bold}
+.skill p{font-size:.88rem;margin-top:7px}
+.projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.project{padding:30px;background:var(--panel);border:1px solid var(--border);border-radius:12px;transition:.3s;min-width:0}
+.project:hover{transform:translateY(-7px);border-color:var(--blue)}
+.project-top{display:flex;justify-content:space-between;color:var(--blue);font-size:.7rem;margin-bottom:40px}
+.project-icon{color:var(--blue);font-size:2rem;margin-bottom:20px}
+.project p{margin:15px 0 25px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tags span{padding:5px 9px;background:#101722;color:#8d98a9;border-radius:4px;font-size:.7rem}
+.project-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:25px}
+.project-links a{color:var(--blue);font-size:.8rem}
+.timeline{max-width:800px;margin:auto}
+.timeline-item{position:relative;padding-left:35px;padding-bottom:55px;border-left:1px solid #253044}
+.timeline-item:last-child{border-left:none}
+.timeline-dot{position:absolute;left:-6px;top:3px;width:11px;height:11px;border-radius:50%;background:var(--blue);box-shadow:0 0 15px var(--blue)}
+.timeline-year{color:var(--blue);font-family:monospace;font-size:.8rem}
+.timeline-item h3{margin:7px 0}
+.contact{padding:130px 7%;text-align:center;background:radial-gradient(circle at center,#1683ff1f,transparent 60%)}
+.contact>small{color:var(--blue);font-weight:bold;letter-spacing:2px}
+.contact h2{max-width:800px;margin:15px auto 20px;font-size:clamp(2.5rem,6vw,5rem);line-height:1.1}
+.contact h2 span{color:var(--blue)}
+.contact>p{max-width:600px;margin:auto;color:#778294}
+.contact-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:15px;margin-top:40px}
+.contact-button{display:flex;align-items:center;gap:15px;padding:16px 20px;min-width:190px;background:var(--panel);border:1px solid var(--border);border-radius:9px;text-align:left;transition:.3s}
+.contact-button:hover{border-color:var(--blue);transform:translateY(-5px)}
+.contact-button>i{color:var(--blue);font-size:1.5rem;font-style:normal}
+.contact-button small{display:block;color:#697589}
+.contact-email{margin-top:35px;color:var(--blue);overflow-wrap:anywhere}
+footer{padding:50px 7%;border-top:1px solid #18202c;text-align:center;color:#5f6b7d}
+.footer-logo{color:white;font-size:1.3rem;font-weight:bold}
+.footer-logo span{color:var(--blue)}
+.footer-socials{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:25px 0}
+.footer-socials a{min-height:40px;padding:0 12px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:6px;color:#7d8899;transition:.3s}
+.footer-socials a:hover{color:var(--blue);border-color:var(--blue)}
+.copyright{font-size:.75rem}
+@media(max-width:1100px){
+ .navbar{padding:0 5%}.navbar nav{gap:14px}.hero{padding-left:5%;padding-right:5%;gap:35px}.code-window{width:440px}
+ .focus-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .stats-container{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:900px){
+ .navbar nav{display:none;position:absolute;top:75px;left:5%;right:5%;flex-direction:column;gap:0;padding:15px;background:#080c14;border:1px solid var(--border);border-radius:10px}
+ .navbar nav.open{display:flex}.navbar nav a{padding:12px}
+ .menu-button{display:flex;margin-left:15px}.nav-button{display:none}
+ .hero{flex-direction:column;align-items:flex-start;min-height:auto;padding-top:125px}
+ .hero-content{max-width:750px}.code-window{width:100%;max-width:650px;transform:none}
+ .about-grid{grid-template-columns:1fr;gap:35px}.skills-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .projects{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+ .navbar{padding:0 5%;min-height:70px}.logo{font-size:1.12rem}
+ .navbar nav{top:70px}.hero{padding:115px 5% 65px}
+ .hero h1{font-size:clamp(2.8rem,13vw,3.6rem);letter-spacing:-2px}
+ .hero-title{font-size:1.8rem}.buttons{flex-direction:column;width:100%}
+ .primary-button,.secondary-button{width:100%}
+ .code-window{transform:none}.code{padding:20px 15px;font-size:.72rem}
+ .section{padding:80px 5%}.section-title{margin-bottom:40px}
+ .stats-container,.focus-grid,.skills-grid{grid-template-columns:1fr}
+ .stats-section{padding:25px 5%}.stat-card{padding:16px}
+ .contact{padding:90px 5%}.contact-buttons{flex-direction:column}
+ .contact-button{width:100%}.socials a{font-size:.75rem;padding:0 10px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+/* Professional brand mark, favicon companion, and icon-only social links */
+.logo{display:inline-flex;align-items:center;gap:10px;letter-spacing:-.35px}
+.brand-mark{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid #1b4d86;border-radius:10px;background:linear-gradient(145deg,#0c1d33,#080c14);color:#1683ff;font-family:monospace;font-size:.95rem;box-shadow:0 0 22px #1683ff20}
+.brand-mark b{color:#fff;font-size:1.05rem}
+.brand-name{color:#f3f6fb}
+.socials a,.footer-socials a{width:42px;min-width:42px;height:42px;padding:0;font-size:1.08rem}
+.socials a i,.footer-socials a i{line-height:1}
+.socials a:focus-visible,.footer-socials a:focus-visible,.navbar a:focus-visible,.buttons a:focus-visible{outline:2px solid #1683ff;outline-offset:4px}
+@media(max-width:600px){.brand-mark{width:34px;height:34px}.brand-name{font-size:1rem}.socials a,.footer-socials a{width:40px;min-width:40px;height:40px}}
 
 </style>
 </head>
-
-
 <body>
-
-
-<!-- PARTICLES -->
-
-<div id="particles"></div>
-
-
-<!-- NAVBAR -->
+<div id="particles" aria-hidden="true"></div>
 
 <header class="navbar">
-
-    <a href="#home" class="logo">
-        <span>&lt;</span>Paul<span>/&gt;</span>
-    </a>
-
-    <nav id="navMenu">
-
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#journey">Journey</a>
-        <a href="#contact">Contact</a>
-
-    </nav>
-
-    <div class="nav-actions">
-
-        <a href="#contact" class="nav-button">
-            Let's Talk
-        </a>
-
-        <button class="menu-button" id="menuButton">
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </button>
-
-    </div>
-
+  <a href="#home" class="logo" aria-label="Map Technologies home"><span class="brand-mark" aria-hidden="true">&lt;<b>M</b>/&gt;</span><span class="brand-name">Map_Technologies</span></a>
+  <nav id="navMenu" aria-label="Main navigation">
+    <a href="#home" class="active">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#journey">Journey</a><a href="#contact">Contact</a>
+  </nav>
+  <div class="nav-actions">
+    <a href="#contact" class="nav-button">Let's Talk</a>
+    <button class="menu-button" id="menuButton" type="button" aria-label="Open navigation menu" aria-controls="navMenu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
 </header>
 
-
-<!-- HERO -->
-
+<main>
 <section class="hero" id="home">
-
-    <div class="hero-content">
-
-        <div class="status">
-
-            <span class="status-dot"></span>
-
-            <span id="typingText">
-                SOFTWARE ENGINEER IN THE MAKING
-            </span>
-
-        </div>
-
-
-        <p class="hero-intro">
-            Hello, I'm
-        </p>
-
-
-        <h1>
-            Paul
-            <span>Ayotomiwa.</span>
-        </h1>
-
-
-        <h2 class="hero-title">
-
-            Building the future,
-            <br>
-
-            <span>one line of code at a time.</span>
-
-        </h2>
-
-
-        <p class="hero-description">
-
-            I'm a Software Engineering student,
-            developer in progress, and the person
-            behind <strong>Map_Technologies</strong>.
-
-            I'm passionate about learning technology,
-            solving problems, and turning ideas into
-            useful digital experiences.
-
-        </p>
-
-
-        <div class="hero-badge">
-
-            <span>● Nigeria</span>
-
-            <span class="badge-divider">•</span>
-
-            <span>Open to opportunities</span>
-
-        </div>
-
-
-        <div class="buttons">
-
-            <a href="#projects" class="primary-button">
-                &lt;/&gt; View My Work
-            </a>
-
-            <a href="#contact" class="secondary-button">
-                ✈ Let's Work Together
-            </a>
-
-        </div>
-
-
-        <div class="socials">
-
-            <a href="https://github.com/mapboda-afk" target="_blank">
-                GitHub
-            </a>
-
-            <a href="https://wa.me/2349043271748" target="_blank">
-                WhatsApp
-            </a>
-
-            <a href="mailto:adigunpaulayotomiwa@gmail.com">
-                Email
-            </a>
-
-            <a href="tel:+2349043271748">
-                Call
-            </a>
-
-        </div>
-
+  <div class="hero-content">
+    <div class="status"><span class="status-dot"></span><span id="typingText">SOFTWARE ENGINEER IN THE MAKING</span></div>
+    <p class="hero-intro">Hello, I'm</p>
+    <h1>Paul <span>Ayotomiwa.</span></h1>
+    <h2 class="hero-title">Building the future,<br><span>one line of code at a time.</span></h2>
+    <p class="hero-description">I'm Paul Ayotomiwa, a 200 Level Software Engineering student at FUOYE and the person behind <strong>Map_Technologies</strong>. I build modern, responsive <strong>business websites, personal portfolio websites, and landing pages</strong> for individuals, businesses, and brands. I'm continuously improving my skills and turning ideas into useful digital experiences.</p>
+    <div class="hero-badge"><span>● Nigeria</span><span class="badge-divider">•</span><span>Open to website projects and opportunities</span></div>
+    <div class="buttons"><a href="#projects" class="primary-button">&lt;/&gt; View My Work</a><a href="#contact" class="secondary-button">✈ Let's Work Together</a></div>
+    <div class="socials" aria-label="Social and contact links">
+      <a href="https://github.com/mapboda-afk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+      <a href="https://www.facebook.com/share/1Gm2PzF5SG/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+      <a href="https://x.com/mapboda01?s=11" target="_blank" rel="noopener noreferrer" aria-label="X" title="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+      <a href="https://www.threads.com/@map_tech01?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" aria-label="Threads" title="Threads"><i class="fa-brands fa-threads" aria-hidden="true"></i></a>
+      <a href="https://www.tiktok.com/@soft_map_boda?_r=1&_t=ZS-9AoLnaEN8EL" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+      <a href="https://whatsapp.com/channel/0029VbEAe5M72WTu3vC65t13" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Channel" title="WhatsApp Channel"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i></a>
+      <a href="https://wa.me/2349043271748" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+      <a href="mailto:adigunpaulayotomiwa@gmail.com" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
     </div>
+  </div>
 
-
-    <!-- CODE WINDOW -->
-
-    <div class="code-window" id="codeWindow">
-
-        <div class="window-top">
-
-            <div class="window-buttons">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
-            <span class="file-name">
-                paul.py
-            </span>
-
-        </div>
-
-
-        <div class="code">
-
-            <div>
-                <span class="purple">class</span>
-                <span class="blue">SoftwareEngineer</span>:
-            </div>
-
-            <div class="indent">
-                name =
-                <span class="green">"Paul"</span>
-            </div>
-
-            <div class="indent">
-                field =
-                <span class="green">"Software Engineering"</span>
-            </div>
-
-            <div class="indent">
-                status =
-                <span class="green">"Learning + Building"</span>
-            </div>
-
-            <div class="indent">
-                company =
-                <span class="green">"Map_Technologies"</span>
-            </div>
-
-            <br>
-
-            <div class="indent">
-                <span class="purple">def</span>
-                <span class="yellow">build_future</span>():
-            </div>
-
-            <div class="double-indent">
-                <span class="blue">return</span>
-                <span class="green">"Keep Learning"</span>
-            </div>
-
-            <div class="double-indent">
-                <span class="blue">return</span>
-                <span class="green">"Keep Building"</span>
-            </div>
-
-            <div class="double-indent">
-                <span class="blue">return</span>
-                <span class="green">"Never Give Up"</span>
-            </div>
-
-            <br>
-
-            <div class="comment">
-                # Map_Technologies
-            </div>
-
-            <div class="comment">
-                # Turning ideas into technology.
-            </div>
-
-        </div>
-
+  <div class="code-window" id="codeWindow" aria-label="Code preview">
+    <div class="window-top"><div class="window-buttons"><span></span><span></span><span></span></div><span class="file-name">map_technologies.py</span></div>
+    <div class="code">
+      <div><span class="purple">class</span> <span class="blue">MapTechnologies</span>:</div>
+      <div class="indent">founder = <span class="green">"Paul Ayotomiwa"</span></div>
+      <div class="indent">level = <span class="green">"200 Level"</span></div>
+      <div class="indent">field = <span class="green">"Software Engineering"</span></div>
+      <div class="indent">services = <span class="green">"Websites + Landing Pages"</span></div>
+      <br>
+      <div class="indent"><span class="purple">def</span> <span class="yellow">build</span>():</div>
+      <div class="double-indent"><span class="blue">return</span> <span class="green">"Ideas into experiences"</span></div>
+      <br>
+      <div class="comment"># Keep learning. Keep building.</div>
+      <div class="comment"># Map_Technologies</div>
     </div>
-
+  </div>
 </section>
 
-
-<!-- STATS -->
-
-<section class="stats-section">
-
-    <div class="stats-container">
-
-        <div class="stat-card">
-            <div class="stat-icon">🎓</div>
-            <div>
-                <strong>100 Level</strong>
-                <span>Software Engineering</span>
-            </div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-icon">💻</div>
-            <div>
-                <strong>4+</strong>
-                <span>Technologies Learning</span>
-            </div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-icon">🚀</div>
-            <div>
-                <strong>2026</strong>
-                <span>Journey Started</span>
-            </div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-icon">💡</div>
-            <div>
-                <strong>1 Vision</strong>
-                <span>Map_Technologies</span>
-            </div>
-        </div>
-
-    </div>
-
+<section class="stats-section" aria-label="Quick facts">
+  <div class="stats-container">
+    <div class="stat-card"><div class="stat-icon">🎓</div><div><strong>200 Level</strong><span>Software Engineering at FUOYE</span></div></div>
+    <div class="stat-card"><div class="stat-icon">💻</div><div><strong>Web Development</strong><span>Learning and building</span></div></div>
+    <div class="stat-card"><div class="stat-icon">🚀</div><div><strong>2026</strong><span>Growing through projects</span></div></div>
+    <div class="stat-card"><div class="stat-icon">💡</div><div><strong>One Vision</strong><span>Map_Technologies</span></div></div>
+  </div>
 </section>
-
-
-<!-- ABOUT -->
 
 <section class="section" id="about">
-
-    <div class="section-title">
-
-        <small>01 — ABOUT ME</small>
-
-        <h2>
-            More than just
-            <span>code.</span>
-        </h2>
-
+  <div class="section-title"><small>01 — ABOUT ME</small><h2>More than just <span>code.</span></h2></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm <strong>Paul Ayotomiwa</strong>, a 200 Level Software Engineering student at the Federal University Oye-Ekiti (FUOYE), passionate about technology, programming, problem-solving, and building useful digital experiences.</p>
+      <p>Through <strong>Map_Technologies</strong>, I'm working toward helping individuals, businesses, and brands establish their presence online with clean, responsive websites.</p>
+      <p>My current services focus on business websites, personal portfolio websites, and landing pages. I keep learning, practising, building projects, and improving with every step.</p>
+      <p>My long-term goal is to become an exceptional software engineer and build technology that solves real problems.</p>
     </div>
-
-
-    <div class="about-grid">
-
-        <div class="about-text">
-
-            <p>
-                I'm <strong>Paul Ayotomiwa</strong>,
-                a Software Engineering student passionate
-                about technology, programming,
-                problem solving, and building useful
-                digital experiences.
-            </p>
-
-            <p>
-                My journey into technology started with
-                curiosity and a strong desire to understand
-                how the digital world works.
-            </p>
-
-            <p>
-                I'm learning every day, making mistakes,
-                fixing them, building projects, and becoming
-                better with every line of code.
-            </p>
-
-            <p>
-                My long-term goal is to become an exceptional
-                software engineer and build technology that
-                solves real problems.
-            </p>
-
-        </div>
-
-
-        <div class="about-side">
-
-            <div class="about-card">
-
-                <div class="about-icon">
-                    &lt;/&gt;
-                </div>
-
-                <h3>
-                    Map_Technologies
-                </h3>
-
-                <p>
-                    A vision to turn ideas into useful
-                    technology.
-                </p>
-
-            </div>
-
-
-            <div class="about-card">
-
-                <div class="about-icon">
-                    🎯
-                </div>
-
-                <h3>
-                    My Goal
-                </h3>
-
-                <p>
-                    Become an outstanding software engineer
-                    while continuously learning and building.
-                </p>
-
-            </div>
-
-        </div>
-
+    <div class="about-side">
+      <div class="about-card"><div class="about-icon">&lt;/&gt;</div><h3>Map_Technologies</h3><p>A growing technology brand turning ideas into useful digital experiences.</p></div>
+      <div class="about-card"><div class="about-icon">🎯</div><h3>My Goal</h3><p>Become an outstanding software engineer while helping clients build their online presence.</p></div>
     </div>
-
+  </div>
 </section>
-
-
-<!-- FOCUS -->
 
 <section class="section dark-section">
-
-    <div class="section-title">
-
-        <small>CURRENT FOCUS</small>
-
-        <h2>
-            What I'm
-            <span>working on.</span>
-        </h2>
-
-    </div>
-
-
-    <div class="focus-grid">
-
-        <article class="focus-card">
-
-            <span class="focus-number">01</span>
-
-            <i>💻</i>
-
-            <h3>Web Development</h3>
-
-            <p>
-                Building modern websites and learning
-                HTML, CSS and JavaScript.
-            </p>
-
-        </article>
-
-
-        <article class="focus-card">
-
-            <span class="focus-number">02</span>
-
-            <i>🐍</i>
-
-            <h3>Programming</h3>
-
-            <p>
-                Developing my programming foundation
-                with Python.
-            </p>
-
-        </article>
-
-
-        <article class="focus-card">
-
-            <span class="focus-number">03</span>
-
-            <i>⚙</i>
-
-            <h3>Software Engineering</h3>
-
-            <p>
-                Learning the principles and thinking
-                required to become a professional engineer.
-            </p>
-
-        </article>
-
-
-        <article class="focus-card">
-
-            <span class="focus-number">04</span>
-
-            <i>🚀</i>
-
-            <h3>Building Projects</h3>
-
-            <p>
-                Turning what I learn into actual projects.
-            </p>
-
-        </article>
-
-    </div>
-
+  <div class="section-title"><small>CURRENT FOCUS</small><h2>What I'm <span>working on.</span></h2></div>
+  <div class="focus-grid">
+    <article class="focus-card"><span class="focus-number">01</span><i>💻</i><h3>Web Development</h3><p>Building modern, responsive websites with HTML, CSS, and JavaScript.</p></article>
+    <article class="focus-card"><span class="focus-number">02</span><i>🐍</i><h3>Programming</h3><p>Developing my programming foundation and problem-solving skills with Python.</p></article>
+    <article class="focus-card"><span class="focus-number">03</span><i>⚙️</i><h3>Software Engineering</h3><p>Learning the principles and practical skills needed to become a professional engineer.</p></article>
+    <article class="focus-card"><span class="focus-number">04</span><i>🚀</i><h3>Client Projects</h3><p>Practising how to turn real needs into useful and attractive website experiences.</p></article>
+  </div>
 </section>
-
-
-<!-- SKILLS -->
 
 <section class="section" id="skills">
-
-    <div class="section-title">
-
-        <small>02 — SKILLS</small>
-
-        <h2>
-            Technologies I'm
-            <span>learning.</span>
-        </h2>
-
-    </div>
-
-
-    <div class="skills-grid">
-
-        <div class="skill">
-            <span class="skill-number">01</span>
-
-            <div class="skill-icon">
-                HTML
-            </div>
-
-            <h3>HTML</h3>
-
-            <p>
-                Building the structure of websites.
-            </p>
-        </div>
-
-
-        <div class="skill">
-            <span class="skill-number">02</span>
-
-            <div class="skill-icon">
-                CSS
-            </div>
-
-            <h3>CSS</h3>
-
-            <p>
-                Creating beautiful interfaces.
-            </p>
-        </div>
-
-
-        <div class="skill">
-            <span class="skill-number">03</span>
-
-            <div class="skill-icon">
-                JS
-            </div>
-
-            <h3>JavaScript</h3>
-
-            <p>
-                Adding interaction and functionality.
-            </p>
-        </div>
-
-
-        <div class="skill">
-            <span class="skill-number">04</span>
-
-            <div class="skill-icon">
-                PY
-            </div>
-
-            <h3>Python</h3>
-
-            <p>
-                Learning programming and problem solving.
-            </p>
-        </div>
-
-
-        <div class="skill">
-            <span class="skill-number">05</span>
-
-            <div class="skill-icon">
-                GIT
-            </div>
-
-            <h3>Git & GitHub</h3>
-
-            <p>
-                Learning professional version control.
-            </p>
-        </div>
-
-
-        <div class="skill">
-            <span class="skill-number">06</span>
-
-            <div class="skill-icon">
-                +
-            </div>
-
-            <h3>Always Learning</h3>
-
-            <p>
-                Continuously expanding my skills.
-            </p>
-        </div>
-
-    </div>
-
+  <div class="section-title"><small>02 — SKILLS</small><h2>Technologies I'm <span>learning.</span></h2></div>
+  <div class="skills-grid">
+    <article class="skill"><span class="skill-number">01</span><div class="skill-icon">HTML</div><h3>HTML</h3><p>Building the structure and content of websites.</p></article>
+    <article class="skill"><span class="skill-number">02</span><div class="skill-icon">CSS</div><h3>CSS</h3><p>Styling responsive, attractive website interfaces.</p></article>
+    <article class="skill"><span class="skill-number">03</span><div class="skill-icon">JS</div><h3>JavaScript</h3><p>Learning to add interaction and functionality.</p></article>
+    <article class="skill"><span class="skill-number">04</span><div class="skill-icon">PY</div><h3>Python</h3><p>Learning programming concepts and problem-solving.</p></article>
+    <article class="skill"><span class="skill-number">05</span><div class="skill-icon">GIT</div><h3>Git &amp; GitHub</h3><p>Learning version control and how to share code.</p></article>
+    <article class="skill"><span class="skill-number">06</span><div class="skill-icon">+</div><h3>Always Learning</h3><p>Continuously practising and expanding my skills.</p></article>
+  </div>
 </section>
-
-
-<!-- PROJECTS -->
 
 <section class="section dark-section" id="projects">
-
-    <div class="section-title">
-
-        <small>03 — PROJECTS</small>
-
-        <h2>
-            Things I'm
-            <span>building.</span>
-        </h2>
-
-    </div>
-
-
-    <div class="projects">
-
-        <article class="project">
-
-            <div class="project-top">
-                <span>01</span>
-                <span>LIVE</span>
-            </div>
-
-            <div class="project-icon">
-                🌐
-            </div>
-
-            <h3>
-                Map_Technologies Portfolio
-            </h3>
-
-            <p>
-                My personal developer portfolio built
-                to document my journey and showcase my work.
-            </p>
-
-            <div class="tags">
-
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-
-            </div>
-
-            <div class="project-links">
-
-                <a href="#" target="_blank">
-                    Live Site →
-                </a>
-
-                <a href="https://github.com/mapboda-afk"
-                   target="_blank">
-                    GitHub →
-                </a>
-
-            </div>
-
-        </article>
-
-
-        <article class="project">
-
-            <div class="project-top">
-                <span>02</span>
-                <span>BUILDING</span>
-            </div>
-
-            <div class="project-icon">
-                💻
-            </div>
-
-            <h3>
-                Future Web Project
-            </h3>
-
-            <p>
-                A future project built as I continue
-                developing my frontend and JavaScript skills.
-            </p>
-
-            <div class="tags">
-                <span>JavaScript</span>
-                <span>UI</span>
-                <span>Coming Soon</span>
-            </div>
-
-        </article>
-
-
-        <article class="project">
-
-            <div class="project-top">
-                <span>03</span>
-                <span>PLANNED</span>
-            </div>
-
-            <div class="project-icon">
-                💡
-            </div>
-
-            <h3>
-                Map_Technologies Project
-            </h3>
-
-            <p>
-                A future technology project focused on
-                turning a real-world idea into a useful solution.
-            </p>
-
-            <div class="tags">
-                <span>Future</span>
-                <span>Software</span>
-                <span>Innovation</span>
-            </div>
-
-        </article>
-
-    </div>
-
+  <div class="section-title"><small>03 — PROJECTS</small><h2>Things I'm <span>building.</span></h2></div>
+  <div class="projects">
+    <article class="project">
+      <div class="project-top"><span>01</span><span>LIVE</span></div><div class="project-icon">🌐</div>
+      <h3>Map_Technologies Portfolio</h3><p>My portfolio website, introducing my journey and the website services I am developing.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+      <div class="project-links"><a href="https://map-technologies-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">Live Site →</a><a href="https://github.com/mapboda-afk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></div>
+    </article>
+    <article class="project">
+      <div class="project-top"><span>02</span><span>IN PROGRESS</span></div><div class="project-icon">💻</div>
+      <h3>Future Web Project</h3><p>A future project to practise and demonstrate my growing frontend and JavaScript skills.</p>
+      <div class="tags"><span>JavaScript</span><span>UI</span><span>Coming Soon</span></div>
+    </article>
+    <article class="project">
+      <div class="project-top"><span>03</span><span>PLANNED</span></div><div class="project-icon">💡</div>
+      <h3>Map_Technologies Solutions</h3><p>Future projects focused on turning useful ideas and real-world needs into digital solutions.</p>
+      <div class="tags"><span>Web</span><span>Software</span><span>Innovation</span></div>
+    </article>
+  </div>
 </section>
-
-
-<!-- JOURNEY -->
 
 <section class="section" id="journey">
-
-    <div class="section-title">
-
-        <small>04 — MY JOURNEY</small>
-
-        <h2>
-            The journey is
-            <span>just beginning.</span>
-        </h2>
-
-    </div>
-
-
-    <div class="timeline">
-
-        <div class="timeline-item">
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-year">
-                2026
-            </div>
-
-            <h3>
-                Started Programming
-            </h3>
-
-            <p>
-                Began learning programming from scratch
-                and discovered a passion for software.
-            </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-year">
-                2026
-            </div>
-
-            <h3>
-                Built My First Portfolio
-            </h3>
-
-            <p>
-                Turned what I was learning into a real
-                website and started building projects.
-            </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-year">
-                NOW
-            </div>
-
-            <h3>
-                Learning & Building
-            </h3>
-
-            <p>
-                Continuing to improve programming,
-                web development and software engineering.
-            </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-year">
-                FUTURE
-            </div>
-
-            <h3>
-                Become an Exceptional Engineer
-            </h3>
-
-            <p>
-                Keep learning, building and solving
-                meaningful problems with technology.
-            </p>
-
-        </div>
-
-    </div>
-
+  <div class="section-title"><small>04 — MY JOURNEY</small><h2>The journey is <span>just beginning.</span></h2></div>
+  <div class="timeline">
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">2026</div><h3>Learning Programming</h3><p>Building my programming foundation and discovering more about software development.</p></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">2026</div><h3>Building My Portfolio</h3><p>Turning what I learn into a website and beginning to showcase my work online.</p></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">NOW</div><h3>Learning &amp; Building</h3><p>Continuing to improve my web development, programming, and software engineering skills.</p></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">FUTURE</div><h3>Become an Exceptional Engineer</h3><p>Keep learning, building, serving clients, and solving meaningful problems with technology.</p></div>
+  </div>
 </section>
-
-
-<!-- CONTACT -->
 
 <section class="contact" id="contact">
-
-    <small>
-        05 — CONTACT
-    </small>
-
-    <h2>
-        Let's build something
-        <span>great.</span>
-    </h2>
-
-    <p>
-        Have an idea, website, project or opportunity
-        you'd like to discuss?
-    </p>
-
-
-    <div class="contact-buttons">
-
-        <a
-            href="https://wa.me/2349043271748"
-            target="_blank"
-            class="contact-button"
-        >
-
-            <i>💬</i>
-
-            <span>
-                <small>WhatsApp</small>
-                Chat With Me
-            </span>
-
-        </a>
-
-
-        <a
-            href="tel:+2349043271748"
-            class="contact-button"
-        >
-
-            <i>📞</i>
-
-            <span>
-                <small>Phone</small>
-                0904 327 1748
-            </span>
-
-        </a>
-
-
-        <a
-            href="mailto:adigunpaulayotomiwa@gmail.com"
-            class="contact-button"
-        >
-
-            <i>✉</i>
-
-            <span>
-                <small>Email</small>
-                Send Me an Email
-            </span>
-
-        </a>
-
-    </div>
-
-
-    <div class="contact-email">
-
-        ✉
-        adigunpaulayotomiwa@gmail.com
-
-    </div>
-
+  <small>05 — CONTACT</small><h2>Let's build something <span>great.</span></h2>
+  <p>Need a business website, personal portfolio, or landing page? Have an idea, project, or opportunity to discuss? Let's talk.</p>
+  <div class="contact-buttons">
+    <a href="https://wa.me/2349043271748" target="_blank" rel="noopener noreferrer" class="contact-button" aria-label="WhatsApp" title="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+    <a href="tel:+2349043271748" class="contact-button"><i>📞</i><span><small>Phone</small>0904 327 1748</span></a>
+    <a href="mailto:adigunpaulayotomiwa@gmail.com" class="contact-button" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
+  </div>
+  <div class="contact-email"><a href="mailto:adigunpaulayotomiwa@gmail.com" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a></div>
 </section>
-
-
-<!-- FOOTER -->
+</main>
 
 <footer>
-
-    <div class="footer-logo">
-        &lt;Paul/&gt;
-    </div>
-
-    <p>
-        Building the future, one line of code at a time.
-    </p>
-
-
-    <div class="footer-socials">
-
-        <a href="https://github.com/mapboda-afk"
-           target="_blank">
-            GitHub
-        </a>
-
-        <a href="https://wa.me/2349043271748"
-           target="_blank">
-            WhatsApp
-        </a>
-
-        <a href="mailto:adigunpaulayotomiwa@gmail.com">
-            Email
-        </a>
-
-    </div>
-
-
-    <div class="copyright">
-        © 2026 Paul Ayotomiwa.
-        Built with HTML, CSS & JavaScript.
-    </div>
-
+  <div class="footer-logo">&lt;<span>Map_Technologies</span>/&gt;</div>
+  <p>Building websites. Turning ideas into digital experiences.</p>
+  <div class="footer-socials">
+    <a href="https://github.com/mapboda-afk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/share/1Gm2PzF5SG/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+    <a href="https://x.com/mapboda01?s=11" target="_blank" rel="noopener noreferrer" aria-label="X" title="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+    <a href="https://www.threads.com/@map_tech01?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" aria-label="Threads" title="Threads"><i class="fa-brands fa-threads" aria-hidden="true"></i></a>
+    <a href="https://www.tiktok.com/@soft_map_boda?_r=1&_t=ZS-9AoLnaEN8EL" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+    <a href="https://whatsapp.com/channel/0029VbEAe5M72WTu3vC65t13" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Channel" title="WhatsApp Channel"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i></a>
+    <a href="mailto:adigunpaulayotomiwa@gmail.com" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
+  </div>
+  <div class="copyright">© <span id="year">2026</span> Paul Ayotomiwa · Map_Technologies. Built with HTML, CSS &amp; JavaScript.</div>
 </footer>
 
-
 <script>
+"use strict";
 
-/* ================================
-   MOBILE MENU
-================================ */
-
+/* Accessible mobile navigation */
 const menuButton = document.getElementById("menuButton");
 const navMenu = document.getElementById("navMenu");
 
 if (menuButton && navMenu) {
+  menuButton.addEventListener("click", function () {
+    const isOpen = navMenu.classList.toggle("open");
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+  });
 
-    menuButton.addEventListener("click", function () {
-
-        navMenu.classList.toggle("open");
-
+  navMenu.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      navMenu.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Open navigation menu");
+      navMenu.querySelectorAll("a").forEach(function (item) {
+        item.classList.remove("active");
+      });
+      link.classList.add("active");
     });
+  });
 
+  document.addEventListener("click", function (event) {
+    if (!navMenu.contains(event.target) && !menuButton.contains(event.target)) {
+      navMenu.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Open navigation menu");
+    }
+  });
 }
 
-
-/* ================================
-   TYPING EFFECT
-================================ */
-
+/* Typing effect */
 const typingText = document.getElementById("typingText");
-
 const messages = [
-    "SOFTWARE ENGINEER IN THE MAKING",
-    "BUILDER • LEARNER • DREAMER",
-    "FUTURE SOFTWARE ENGINEER",
-    "BUILDING MAP_TECHNOLOGIES"
+  "SOFTWARE ENGINEER IN THE MAKING",
+  "BUILDER • LEARNER • DREAMER",
+  "FUTURE SOFTWARE ENGINEER",
+  "BUILDING MAP_TECHNOLOGIES"
 ];
-
 let messageIndex = 0;
 let characterIndex = 0;
 let deleting = false;
 
 function typeWriter() {
+  if (!typingText || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const message = messages[messageIndex];
 
-    if (!typingText) return;
-
-    const message = messages[messageIndex];
-
-    if (!deleting) {
-
-        characterIndex++;
-
-        typingText.textContent =
-            message.substring(0, characterIndex);
-
-        if (characterIndex === message.length) {
-
-            deleting = true;
-
-            setTimeout(typeWriter, 1800);
-
-            return;
-        }
-
-    } else {
-
-        characterIndex--;
-
-        typingText.textContent =
-            message.substring(0, characterIndex);
-
-        if (characterIndex === 0) {
-
-            deleting = false;
-
-            messageIndex =
-                (messageIndex + 1) % messages.length;
-
-        }
-
+  if (!deleting) {
+    characterIndex++;
+    typingText.textContent = message.substring(0, characterIndex);
+    if (characterIndex >= message.length) {
+      deleting = true;
+      window.setTimeout(typeWriter, 1600);
+      return;
     }
-
-    setTimeout(
-        typeWriter,
-        deleting ? 45 : 75
-    );
+  } else {
+    characterIndex--;
+    typingText.textContent = message.substring(0, characterIndex);
+    if (characterIndex <= 0) {
+      deleting = false;
+      messageIndex = (messageIndex + 1) % messages.length;
+    }
+  }
+  window.setTimeout(typeWriter, deleting ? 40 : 70);
 }
-
 typeWriter();
 
-
-/* ================================
-   PARTICLES
-================================ */
-
-const particles =
-    document.getElementById("particles");
-
-if (particles) {
-
-    for (let i = 0; i < 35; i++) {
-
-        const particle =
-            document.createElement("span");
-
-        particle.className = "particle";
-
-        particle.style.left =
-            Math.random() * 100 + "%";
-
-        particle.style.animationDelay =
-            Math.random() * 8 + "s";
-
-        particle.style.animationDuration =
-            5 + Math.random() * 8 + "s";
-
-        particles.appendChild(particle);
-    }
+/* Decorative particles */
+const particles = document.getElementById("particles");
+if (particles && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const fragment = document.createDocumentFragment();
+  for (let i = 0; i < 35; i++) {
+    const particle = document.createElement("span");
+    particle.className = "particle";
+    particle.style.left = (Math.random() * 100) + "%";
+    particle.style.animationDelay = (Math.random() * 8) + "s";
+    particle.style.animationDuration = (5 + Math.random() * 8) + "s";
+    fragment.appendChild(particle);
+  }
+  particles.appendChild(fragment);
 }
 
-
-/* ================================
-   CODE WINDOW EFFECT
-================================ */
-
-const codeWindow =
-    document.getElementById("codeWindow");
-
-if (codeWindow && window.innerWidth > 700) {
-
-    codeWindow.addEventListener(
-        "mousemove",
-        function(event) {
-
-            const rect =
-                codeWindow.getBoundingClientRect();
-
-            const x =
-                event.clientX - rect.left;
-
-            const y =
-                event.clientY - rect.top;
-
-            const rotateX =
-                ((y / rect.height) - 0.5) * -8;
-
-            const rotateY =
-                ((x / rect.width) - 0.5) * 8;
-
-            codeWindow.style.transform =
-                "perspective(1000px) " +
-                "rotateX(" +
-                rotateX +
-                "deg) " +
-                "rotateY(" +
-                rotateY +
-                "deg)";
-
-        }
-    );
-
-
-    codeWindow.addEventListener(
-        "mouseleave",
-        function() {
-
-            codeWindow.style.transform =
-                "rotate(2deg)";
-
-        }
-    );
-
+/* Subtle desktop code-window tilt */
+const codeWindow = document.getElementById("codeWindow");
+if (codeWindow && window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  codeWindow.addEventListener("mousemove", function (event) {
+    const rect = codeWindow.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const rotateX = ((y / rect.height) - 0.5) * -6;
+    const rotateY = ((x / rect.width) - 0.5) * 6;
+    codeWindow.style.transform = "perspective(1000px) rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg)";
+  });
+  codeWindow.addEventListener("mouseleave", function () {
+    codeWindow.style.transform = window.innerWidth > 900 ? "rotate(2deg)" : "none";
+  });
 }
 
-
-/* ================================
-   NAVIGATION
-================================ */
-
-const links =
-    document.querySelectorAll(
-        ".navbar nav a"
-    );
-
-links.forEach(function(link) {
-
-    link.addEventListener(
-        "click",
-        function() {
-
-            navMenu.classList.remove("open");
-
-        }
-    );
-
-});
-
+/* Automatically keep the copyright year current */
+const yearElement = document.getElementById("year");
+if (yearElement) yearElement.textContent = String(new Date().getFullYear());
 </script>
-
 </body>
 </html>
