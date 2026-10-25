@@ -5,10 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080d18">
-  <meta name="description" content="Map_Technologies builds responsive websites for businesses, creators, and professionals. Explore projects and enquire about your website.">
+  <meta name="description" content="Map_Technologies builds responsive websites for businesses, creators, and professionals.">
   <meta name="author" content="Paul Ayotomiwa">
   <meta name="robots" content="index, follow">
-
   <title>Map_Technologies | Professional Web Development</title>
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23080d18'/%3E%3Ctext x='50' y='65' font-size='48' text-anchor='middle' font-family='Arial' font-weight='bold' fill='%2378a9ff'%3EM%3C/text%3E%3C/svg%3E">
@@ -18,29 +17,6 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-
-.resume-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 24px;
-}
-
-.resume-actions .btn {
-  max-width: 100%;
-}
-
-@media (max-width: 420px) {
-  .resume-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .resume-actions .btn {
-    width: 100%;
-  }
-}
-
     :root {
       --bg: #080d18;
       --panel: #101a2b;
@@ -48,14 +24,12 @@
       --text: #f4f7ff;
       --muted: #a4afc4;
       --blue: #78a9ff;
-      --border: rgba(173, 194, 230, .15);
+      --border: rgba(173,194,230,.15);
       --green: #70d6a0;
       --container: 1120px;
     }
 
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -75,9 +49,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    body,
-    button,
-    a {
+    body, button, a {
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -93,15 +65,14 @@
 
     button {
       font: inherit;
+      touch-action: manipulation;
     }
 
-    button,
     a {
       touch-action: manipulation;
     }
 
-    a:focus-visible,
-    button:focus-visible {
+    a:focus-visible, button:focus-visible {
       outline: 2px solid var(--blue);
       outline-offset: 4px;
     }
@@ -111,9 +82,7 @@
       margin-inline: auto;
     }
 
-    h1,
-    h2,
-    h3 {
+    h1, h2, h3 {
       font-family: "Space Grotesk", sans-serif;
       line-height: 1.2;
       overflow-wrap: break-word;
@@ -163,17 +132,14 @@
       gap: 8px;
       min-height: 46px;
       padding: 12px 19px;
-      border-radius: 10px;
       border: 1px solid var(--border);
+      border-radius: 10px;
       font-size: .92rem;
       font-weight: 700;
       text-align: center;
       line-height: 1.4;
       cursor: pointer;
-      transition:
-        transform .2s ease,
-        border-color .2s ease,
-        background-color .2s ease;
+      transition: transform .2s ease, border-color .2s ease, background-color .2s ease;
     }
 
     .btn:hover {
@@ -198,16 +164,15 @@
 
     .btn-secondary:hover {
       border-color: var(--blue);
-      background: rgba(120, 169, 255, .06);
+      background: rgba(120,169,255,.06);
     }
 
     /* Navigation */
-
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(8, 13, 24, .96);
+      background: rgba(8,13,24,.96);
       border-bottom: 1px solid var(--border);
       -webkit-backdrop-filter: blur(15px);
       backdrop-filter: blur(15px);
@@ -266,28 +231,19 @@
     }
 
     /* Hero */
-
     .hero {
       padding: 100px 0 85px;
-      background:
-        radial-gradient(
-          circle at 85% 10%,
-          rgba(78, 141, 255, .15),
-          transparent 350px
-        );
+      background: radial-gradient(circle at 85% 10%, rgba(78,141,255,.15), transparent 350px);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+      grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr);
       align-items: center;
       gap: 55px;
     }
 
-    .hero-grid > *,
-    .about-grid > *,
-    .cards > *,
-    .contact-box > * {
+    .hero-grid > *, .about-grid > *, .cards > *, .contact-box > * {
       min-width: 0;
     }
 
@@ -321,8 +277,8 @@
       padding: 28px;
       border: 1px solid var(--border);
       border-radius: 24px;
-      background: linear-gradient(145deg, #152440, #0d1422);
-      box-shadow: 0 25px 70px rgba(0, 0, 0, .3);
+      background: linear-gradient(145deg,#152440,#0d1422);
+      box-shadow: 0 25px 70px rgba(0,0,0,.3);
     }
 
     .browser-bar {
@@ -345,19 +301,19 @@
 
     .hero-card-content h2 {
       margin: 14px 0;
-      font-size: clamp(1.7rem, 3vw, 2.25rem);
+      font-size: clamp(1.7rem,3vw,2.25rem);
     }
 
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3,minmax(0,1fr));
       gap: 10px;
       margin-top: 25px;
     }
 
     .feature {
       padding: 13px 9px;
-      background: rgba(120, 169, 255, .08);
+      background: rgba(120,169,255,.08);
       border: 1px solid var(--border);
       border-radius: 10px;
       font-size: .78rem;
@@ -370,8 +326,7 @@
       font-size: 1.1rem;
     }
 
-    /* Services */
-
+    /* Section headings and cards */
     .section-heading {
       max-width: 700px;
       margin-bottom: 40px;
@@ -383,7 +338,7 @@
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3,minmax(0,1fr));
       gap: 20px;
     }
 
@@ -397,7 +352,7 @@
 
     .card:hover {
       transform: translateY(-4px);
-      border-color: rgba(120, 169, 255, .5);
+      border-color: rgba(120,169,255,.5);
     }
 
     .card-icon {
@@ -425,7 +380,6 @@
     }
 
     /* Projects */
-
     .projects {
       background: #0b1220;
       border-block: 1px solid var(--border);
@@ -442,7 +396,7 @@
 
     .project-card:hover {
       transform: translateY(-3px);
-      border-color: rgba(120, 169, 255, .4);
+      border-color: rgba(120,169,255,.4);
     }
 
     .project-preview {
@@ -450,11 +404,11 @@
       padding: 25px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, #19365c, #0d1422);
+      background: linear-gradient(135deg,#19365c,#0d1422);
     }
 
     .project-preview.lime {
-      background: linear-gradient(135deg, #1c3428, #0d1714);
+      background: linear-gradient(135deg,#1c3428,#0d1714);
     }
 
     .preview-window {
@@ -528,15 +482,47 @@
     }
 
     /* About */
-
     .about-grid {
       display: grid;
-      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr);
       align-items: start;
       gap: 40px;
     }
 
+    .about-profile {
+      display: grid;
+      gap: 22px;
+      align-content: start;
+    }
+
+    .about-photo {
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      overflow: hidden;
+      border: 1px solid rgba(100,160,255,.25);
+      border-radius: 20px;
+      background: #0c1526;
+    }
+
+    .about-photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .about-photo figcaption {
+      padding: 12px;
+      color: #b9c7dc;
+      font-size: .9rem;
+      text-align: center;
+    }
+
     .about-card {
+      width: 100%;
       padding: 30px;
       background: var(--panel);
       border: 1px solid var(--border);
@@ -556,7 +542,7 @@
       font-weight: 700;
     }
 
-    .about-card p {
+    .about-card p, .about-copy p {
       margin: 12px 0;
     }
 
@@ -564,15 +550,21 @@
       margin-top: 12px;
     }
 
-    .about-copy p {
-      margin: 16px 0;
+    .resume-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .resume-actions .btn {
+      max-width: 100%;
     }
 
     /* Process */
-
     .process-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(4,minmax(0,1fr));
       gap: 20px;
     }
 
@@ -595,27 +587,59 @@
       font-size: .9rem;
     }
 
-    /* Contact */
+    /* Stay Updated */
+    .stay-updated {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
 
+    .updated-grid {
+      display: grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .updated-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: rgba(255,255,255,.035);
+    }
+
+    .updated-label {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: #8eb8ff;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+    }
+
+    .updated-card h3 {
+      margin-bottom: 12px;
+    }
+
+    .updated-card p {
+      margin-bottom: 22px;
+      line-height: 1.7;
+    }
+
+    /* Contact */
     .contact-box {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       gap: 35px;
       padding: 45px;
-      background:
-        radial-gradient(
-          circle at 90% 0%,
-          rgba(78, 141, 255, .16),
-          transparent 350px
-        ),
-        var(--panel);
+      background: radial-gradient(circle at 90% 0%,rgba(78,141,255,.16),transparent 350px),var(--panel);
       border: 1px solid var(--border);
       border-radius: 24px;
     }
 
     .contact-copy {
       flex: 1;
+      min-width: 0;
     }
 
     .contact-copy h2 {
@@ -635,7 +659,7 @@
 
     .contact-details {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2,minmax(0,1fr));
       gap: 12px;
       margin-top: 25px;
     }
@@ -646,7 +670,7 @@
       gap: 4px;
       min-width: 0;
       padding: 15px;
-      background: rgba(8, 13, 24, .45);
+      background: rgba(8,13,24,.45);
       border: 1px solid var(--border);
       border-radius: 12px;
     }
@@ -656,8 +680,7 @@
       font-size: .86rem;
     }
 
-    .contact-item a,
-    .contact-item span {
+    .contact-item a {
       color: var(--muted);
       font-size: .88rem;
       overflow-wrap: anywhere;
@@ -672,89 +695,51 @@
       font-size: 1rem;
     }
 
+    .socials {
+      display: grid;
+      grid-template-columns: repeat(4,minmax(0,1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
 
-/* Social platforms: logo above, name underneath */
+    .socials a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-width: 0;
+      min-height: 100px;
+      padding: 15px 8px;
+      color: #c5cee0;
+      background: rgba(16,26,43,.75);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      font-size: .82rem;
+      font-weight: 600;
+      text-align: center;
+      transition: background-color .2s ease,border-color .2s ease,transform .2s ease;
+    }
 
-.socials {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 18px;
-}
+    .socials a:hover {
+      color: var(--text);
+      background: var(--panel-light);
+      border-color: var(--blue);
+      transform: translateY(-3px);
+    }
 
-.socials a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-width: 0;
-  min-height: 100px;
-  padding: 15px 8px;
-  color: #c5cee0;
-  background: rgba(16, 26, 43, 0.75);
-  border: 1px solid var(--border);
-  border-radius: 13px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-align: center;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
-}
+    .social-logo {
+      display: block;
+      width: 29px;
+      height: 29px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
 
-.socials a:hover {
-  color: var(--text);
-  background: var(--panel-light);
-  border-color: var(--blue);
-  transform: translateY(-3px);
-}
-
-.socials .social-logo {
-  display: block;
-  width: 29px;
-  height: 29px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
-/* Keep social icon images within their tiles */
-.socials img {
-  max-width: 100%;
-}
-
-.socials .social-name {
-  display: block;
-  overflow-wrap: anywhere;
-}
-
-@media (max-width: 650px) {
-  .socials {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .socials a {
-    min-height: 94px;
-    padding: 12px 5px;
-    font-size: 0.78rem;
-  }
-
-  .socials .social-logo {
-    width: 27px;
-    height: 27px;
-  }
-}
-
-@media (max-width: 360px) {
-  .socials {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-
- 
+    .social-name {
+      display: block;
+      overflow-wrap: anywhere;
+    }
 
     .small-note {
       margin-top: 14px;
@@ -762,7 +747,6 @@
     }
 
     /* Footer */
-
     footer {
       padding: 28px 0;
       border-top: 1px solid var(--border);
@@ -793,7 +777,6 @@
     }
 
     /* Tablet */
-
     @media (max-width: 900px) {
       .hero-grid {
         grid-template-columns: 1fr;
@@ -805,15 +788,19 @@
       }
 
       .cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2,minmax(0,1fr));
       }
 
       .about-grid {
         grid-template-columns: 1fr;
       }
 
+      .about-profile .about-photo {
+        max-width: 280px;
+      }
+
       .process-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2,minmax(0,1fr));
       }
 
       .contact-box {
@@ -833,7 +820,6 @@
     }
 
     /* Mobile */
-
     @media (max-width: 650px) {
       html {
         scroll-padding-top: 80px;
@@ -852,7 +838,7 @@
       }
 
       h1 {
-        font-size: clamp(2.45rem, 10.5vw, 3.7rem);
+        font-size: clamp(2.45rem,10.5vw,3.7rem);
         letter-spacing: -1.8px;
       }
 
@@ -912,8 +898,7 @@
         font-size: .72rem;
       }
 
-      .cards,
-      .process-grid {
+      .cards, .process-grid {
         grid-template-columns: 1fr;
       }
 
@@ -947,6 +932,14 @@
         flex-basis: auto;
       }
 
+      .updated-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .updated-card {
+        padding: 22px;
+      }
+
       .contact-box {
         padding: 25px;
       }
@@ -964,22 +957,49 @@
         grid-template-columns: 1fr;
       }
 
+      .socials {
+        grid-template-columns: repeat(3,minmax(0,1fr));
+        gap: 10px;
+      }
+
+      .socials a {
+        min-height: 94px;
+        padding: 12px 5px;
+        font-size: .78rem;
+      }
+
+      .social-logo {
+        width: 27px;
+        height: 27px;
+      }
+
+      .resume-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .resume-actions .btn {
+        width: 100%;
+      }
+
       .footer-inner {
         align-items: flex-start;
         flex-direction: column;
       }
     }
 
-    /* Respect motion preferences */
+    @media (max-width: 360px) {
+      .socials {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+    }
 
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
       }
 
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
@@ -996,43 +1016,28 @@
         Map<span>_Technologies</span>
       </a>
 
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="navLinks"
-      >☰</button>
+      <button class="menu-toggle" id="menuToggle" type="button"
+        aria-label="Open navigation menu" aria-expanded="false"
+        aria-controls="navLinks">☰</button>
 
       <div class="nav-links" id="navLinks">
         <a href="#services">Services</a>
         <a href="#work">Projects</a>
         <a href="#about">About</a>
+        <a href="#stay-updated">Stay Updated</a>
         <a href="#contact">Contact</a>
-
-        <a
-          class="btn btn-primary"
-          href="https://wa.me/message/7NJ6QECRRXVFK1"
-          target="_blank"
-          rel="noopener noreferrer"
-     >Let's Talk</a>
+        <a class="btn btn-primary" href="https://wa.me/message/7NJ6QECRRXVFK1"
+          target="_blank" rel="noopener noreferrer">Let's Talk</a>
       </div>
     </nav>
   </header>
 
   <main>
-    <!-- Hero -->
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div>
           <span class="eyebrow">Web design &amp; development</span>
-
-          <h1>
-            Good ideas deserve a
-            <span class="blue">great website.</span>
-          </h1>
-
+          <h1>Good ideas deserve a <span class="blue">great website.</span></h1>
           <p class="hero-description">
             Map_Technologies helps businesses, creators, and professionals
             build a clear online presence with responsive websites designed
@@ -1040,16 +1045,9 @@
           </p>
 
           <div class="hero-actions">
-            <a
-              class="btn btn-primary"
-              href="https://wa.me/message/7NJ6QECRRXVFK1"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Start a project </a>
-
-            <a class="btn btn-secondary" href="#work">
-              Explore my work 
-            </a>
+            <a class="btn btn-primary" href="https://wa.me/message/7NJ6QECRRXVFK1"
+              target="_blank" rel="noopener noreferrer">Start a project</a>
+            <a class="btn btn-secondary" href="#work">Explore my work</a>
           </div>
 
           <p class="availability">
@@ -1057,189 +1055,90 @@
             Open to website projects and collaborations
           </p>
 
-        
-<div class="socials" aria-label="Social media links">
-  <a href="https://github.com/mapboda-afk"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="GitHub">
-    <img class="social-logo" src="https://cdn.simpleicons.org/github/FFFFFF"
-         alt="" width="29" height="29" loading="lazy">
-    <span class="social-name">GitHub</span>
-  </a>
-
-  <a href="https://x.com/mapboda01?s=11"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="X">
-    <img class="social-logo" src="https://cdn.simpleicons.org/x/FFFFFF"
-         alt="" width="29" height="29" loading="lazy">
-    <span class="social-name">X</span>
-  </a>
-
-  <a href="https://www.facebook.com/share/1DZpkQPPxE/?mibextid=wwXIfr"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="Facebook">
-    <img class="social-logo" src="https://cdn.simpleicons.org/facebook/0866FF"
-         alt="" width="29" height="29" loading="lazy">
-    <span class="social-name">Facebook</span>
-  </a>
-
-  <a href="https://www.threads.com/@map_tech01"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="Threads">
-    <img class="social-logo" src="https://cdn.simpleicons.org/threads/FFFFFF"
-         alt="" width="29" height="29" loading="lazy">
-    <span class="social-name">Threads</span>
-  </a>
-
-  <a href="https://www.tiktok.com/@soft_map_boda"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="TikTok">
-    <img class="social-logo" src="https://cdn.simpleicons.org/tiktok/FFFFFF"
-         alt="" width="29" height="29" loading="lazy">
-    <span class="social-name">TikTok</span>
-  </a>
-
-  <a href="https://discord.gg/cJTQuxSzH"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="Discord">
-    <img class="social-logo" src="https://cdn.simpleicons.org/discord/5865F2"
-         alt="" width="29" height="29" loading="lazy">
-    <span class="social-name">Discord</span>
-  </a>
-</div>
+          <div class="socials" aria-label="Social media links">
+            <a href="https://github.com/mapboda-afk" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <img class="social-logo" src="https://cdn.simpleicons.org/github/FFFFFF" alt="" width="29" height="29" loading="lazy">
+              <span class="social-name">GitHub</span>
+            </a>
+            <a href="https://x.com/mapboda01?s=11" target="_blank" rel="noopener noreferrer" aria-label="X">
+              <img class="social-logo" src="https://cdn.simpleicons.org/x/FFFFFF" alt="" width="29" height="29" loading="lazy">
+              <span class="social-name">X</span>
+            </a>
+            <a href="https://www.facebook.com/share/1DZpkQPPxE/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <img class="social-logo" src="https://cdn.simpleicons.org/facebook/0866FF" alt="" width="29" height="29" loading="lazy">
+              <span class="social-name">Facebook</span>
+            </a>
+            <a href="https://www.threads.com/@map_tech01" target="_blank" rel="noopener noreferrer" aria-label="Threads">
+              <img class="social-logo" src="https://cdn.simpleicons.org/threads/FFFFFF" alt="" width="29" height="29" loading="lazy">
+              <span class="social-name">Threads</span>
+            </a>
+            <a href="https://www.tiktok.com/@soft_map_boda" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <img class="social-logo" src="https://cdn.simpleicons.org/tiktok/FFFFFF" alt="" width="29" height="29" loading="lazy">
+              <span class="social-name">TikTok</span>
+            </a>
+            <a href="https://discord.gg/DCXtJZPM" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+              <img class="social-logo" src="https://cdn.simpleicons.org/discord/5865F2" alt="" width="29" height="29" loading="lazy">
+              <span class="social-name">Discord</span>
+            </a>
+          </div>
         </div>
 
         <div class="hero-card">
-          <div class="browser-bar" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
+          <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
           <div class="hero-card-content">
             <span class="eyebrow">Your brand, online</span>
-
             <h2>Make your first impression count.</h2>
-
-            <p>
-              A thoughtful digital experience designed to look good
-              and work smoothly across devices.
-            </p>
-
+            <p>A thoughtful digital experience designed to look good and work smoothly across devices.</p>
             <div class="feature-grid">
-              <div class="feature">
-                <strong>◇</strong>
-                Clean design
-              </div>
-
-              <div class="feature">
-                <strong>↗</strong>
-                Mobile ready
-              </div>
-
-              <div class="feature">
-                <strong>⌘</strong>
-                Built with care
-              </div>
+              <div class="feature"><strong>◇</strong>Clean design</div>
+              <div class="feature"><strong>↗</strong>Mobile ready</div>
+              <div class="feature"><strong>⌘</strong>Built with care</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services -->
     <section class="section" id="services">
       <div class="container">
         <div class="section-heading">
           <span class="eyebrow">What I can build</span>
-
-          <h2>
-            Websites made for
-            <span class="blue">your next step.</span>
-          </h2>
-
-          <p>
-            From launching a business to showcasing your skills,
-            let's create a website that helps people understand what
-            you do and how to reach you.
-          </p>
+          <h2>Websites made for <span class="blue">your next step.</span></h2>
+          <p>From launching a business to showcasing your skills, let's create a website that helps people understand what you do and how to reach you.</p>
         </div>
 
         <div class="cards">
           <article class="card">
             <div class="card-icon" aria-hidden="true">▤</div>
-
             <h3>Business Websites</h3>
-
-            <p>
-              Give customers a place to learn about your business,
-              explore your services, and contact you.
-            </p>
-
-            <ul>
-              <li>Business information</li>
-              <li>Services and contact sections</li>
-              <li>Responsive page layout</li>
-            </ul>
+            <p>Give customers a place to learn about your business, explore your services, and contact you.</p>
+            <ul><li>Business information</li><li>Services and contact sections</li><li>Responsive page layout</li></ul>
           </article>
-
           <article class="card">
             <div class="card-icon" aria-hidden="true">✧</div>
-
             <h3>Personal Portfolios</h3>
-
-            <p>
-              Present your skills, projects, and experience in a
-              polished and organised way.
-            </p>
-
-            <ul>
-              <li>Personal introduction</li>
-              <li>Project showcase</li>
-              <li>Social and contact links</li>
-            </ul>
+            <p>Present your skills, projects, and experience in a polished and organised way.</p>
+            <ul><li>Personal introduction</li><li>Project showcase</li><li>Social and contact links</li></ul>
           </article>
-
           <article class="card">
             <div class="card-icon" aria-hidden="true">↗</div>
-
             <h3>Landing Pages</h3>
-
-            <p>
-              Put a product, service, event, or campaign in the
-              spotlight with a focused page.
-            </p>
-
-            <ul>
-              <li>Clear call to action</li>
-              <li>Key details and benefits</li>
-              <li>Mobile-friendly design</li>
-            </ul>
+            <p>Put a product, service, event, or campaign in the spotlight with a focused page.</p>
+            <ul><li>Clear call to action</li><li>Key details and benefits</li><li>Mobile-friendly design</li></ul>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Projects -->
     <section class="section projects" id="work">
       <div class="container">
         <div class="section-heading">
           <span class="eyebrow">Selected work</span>
-
-          <h2>
-            Practice that builds
-            <span class="blue">real skills.</span>
-          </h2>
-
-          <p>
-            Explore my portfolio and website concepts. Each project
-            is an opportunity to improve design, responsiveness,
-            and the user experience.
-          </p>
+          <h2>Practice that builds <span class="blue">real skills.</span></h2>
+          <p>Explore my portfolio and website concepts. Each project is an opportunity to improve design, responsiveness, and the user experience.</p>
         </div>
 
         <div class="cards">
-          <!-- Map Technologies portfolio -->
           <article class="project-card">
             <div class="project-preview">
               <div class="preview-window">
@@ -1248,31 +1147,14 @@
                 <p>Websites for ideas ready to grow.</p>
               </div>
             </div>
-
             <div class="project-info">
               <h3>Map_Technologies Portfolio</h3>
-
-              <p>
-                The home of my brand, website services, project
-                samples, and client enquiries.
-              </p>
-
-              <div class="tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">Responsive design</span>
-              </div>
-
-              <a
-                class="text-link"
-                href="https://map-technologies-portfolio.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >Visit Live Website </a>
+              <p>The home of my brand, website services, project samples, and client enquiries.</p>
+              <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Responsive design</span></div>
+              <a class="text-link" href="https://map-technologies-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Live Website ↗</a>
             </div>
           </article>
 
-          <!-- FreshCut Barbershop -->
           <article class="project-card">
             <div class="project-preview lime">
               <div class="preview-window">
@@ -1281,36 +1163,13 @@
                 <p>A modern barbershop website concept.</p>
               </div>
             </div>
-
             <div class="project-info">
               <h3>FreshCut Barbershop</h3>
-
-              <p>
-                A responsive barbershop website built to present
-                services, prices, and booking information in a
-                clean and professional layout.
-              </p>
-
-              <div class="tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">Responsive design</span>
-              </div>
-
+              <p>A responsive barbershop website concept designed to present services, prices, and booking information in a clean, professional layout.</p>
+              <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Responsive design</span></div>
               <div class="project-actions">
-                <a
-                  class="btn btn-primary"
-                  href="https://freshcut-barbershop-hazel.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >Visit Live Website </a>
-
-                <a
-                  class="btn btn-secondary"
-                  href="https://wa.me/message/7NJ6QECRRXVFK1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >Build a Similar Website </a>
+                <a class="btn btn-primary" href="https://freshcut-barbershop-hazel.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Live Website</a>
+                <a class="btn btn-secondary" href="https://wa.me/message/7NJ6QECRRXVFK1" target="_blank" rel="noopener noreferrer">Build a Similar Website</a>
               </div>
             </div>
           </article>
@@ -1318,313 +1177,161 @@
       </div>
     </section>
 
-    <!-- Process -->
     <section class="section" id="process">
       <div class="container">
         <div class="section-heading">
           <span class="eyebrow">How it works</span>
-
           <h2>A straightforward process.</h2>
-
-          <p>
-            Clear communication and agreed expectations from the beginning.
-          </p>
+          <p>Clear communication and agreed expectations from the beginning.</p>
         </div>
-
         <div class="process-grid">
-          <article class="step">
-            <span>01 / DISCOVER</span>
-            <h3>Share your idea</h3>
-            <p>
-              Tell me about your business, audience, goals,
-              and the website you have in mind.
-            </p>
-          </article>
-
-          <article class="step">
-            <span>02 / PLAN</span>
-            <h3>Agree on the scope</h3>
-            <p>
-              We'll discuss the pages, features, price, timeline,
-              and any extra costs.
-            </p>
-          </article>
-
-          <article class="step">
-            <span>03 / BUILD</span>
-            <h3>Create the website</h3>
-            <p>
-              I'll work on the agreed requirements and share
-              progress where appropriate.
-            </p>
-          </article>
-
-          <article class="step">
-            <span>04 / LAUNCH</span>
-            <h3>Review and publish</h3>
-            <p>
-              After review and approval, we'll arrange deployment
-              and handover.
-            </p>
-          </article>
+          <article class="step"><span>01 / DISCOVER</span><h3>Share your idea</h3><p>Tell me about your business, audience, goals, and the website you have in mind.</p></article>
+          <article class="step"><span>02 / PLAN</span><h3>Agree on the scope</h3><p>We'll discuss the pages, features, price, timeline, and any extra costs.</p></article>
+          <article class="step"><span>03 / BUILD</span><h3>Create the website</h3><p>I'll work on the agreed requirements and share progress where appropriate.</p></article>
+          <article class="step"><span>04 / LAUNCH</span><h3>Review and publish</h3><p>After review and approval, we'll arrange deployment and handover.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- About -->
     <section class="section" id="about">
       <div class="container about-grid">
-        <div class="about-card">
-          <div class="monogram" aria-hidden="true">PA</div>
+        <div class="about-profile">
+          <figure class="about-photo">
+            <img src="./paul-portrait.jpg" alt="Paul Ayotomiwa, founder of Map_Technologies" width="680" height="850" loading="lazy" decoding="async">
+            <figcaption>Paul Ayotomiwa · Map_Technologies</figcaption>
+          </figure>
 
-          <h3>Paul Ayotomiwa</h3>
-
-          <p>Founder of Map_Technologies</p>
-
-          <p>
-            A web development learner building practical projects
-            and helping people establish a useful online presence.
-          </p>
-
-          <a
-            class="text-link"
-            href="https://github.com/mapboda-afk"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Visit my GitHub ↗</a>
+          <div class="about-card">
+            <div class="monogram" aria-hidden="true">PA</div>
+            <h3>Paul Ayotomiwa</h3>
+            <p>Founder of Map_Technologies</p>
+            <p>A web development learner building practical projects and helping people establish a useful online presence.</p>
+            <a class="text-link" href="https://github.com/mapboda-afk" target="_blank" rel="noopener noreferrer">Visit my GitHub ↗</a>
+          </div>
         </div>
 
         <div class="about-copy">
           <span class="eyebrow">About me</span>
-
-          <h2>
-            Learning by building.
-            <span class="blue">Improving with every project.</span>
-          </h2>
-
-          <p>
-            I'm growing Map_Technologies around a simple idea:
-            a website should make it easier for people to understand
-            what you do and take the next step.
-          </p>
-
-  
-
-          <p>
-            I'm developing my skills through hands-on projects.
-            I value honest communication, thoughtful design, and
-            agreeing on the work before a project begins. I won't
-            promise features or results that haven't been confirmed.
-          </p>
+          <h2>Learning by building. <span class="blue">Improving with every project.</span></h2>
+          <p>I'm growing Map_Technologies around a simple idea: a website should make it easier for people to understand what you do and take the next step.</p>
+          <p>I'm developing my skills through hands-on projects. I value honest communication, thoughtful design, and agreeing on the work before a project begins. I won't promise features or results that haven't been confirmed.</p>
 
           <div class="resume-actions">
-            <a
-              class="btn btn-primary"
-              href="./Paul_Ayotomiwa_Resume.pdf.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Résumé ↗
-            </a>
-
-            <a
-              class="btn btn-secondary"
-              href="./Paul_Ayotomiwa_Resume.pdf.pdf"
-              download="Paul_Ayotomiwa_Resume.pdf"
-            >
-              Download Résumé ↓
-            </a>
+            <a class="btn btn-primary" href="./Paul_Ayotomiwa_Resume.pdf.pdf" target="_blank" rel="noopener noreferrer">View Résumé ↗</a>
+            <a class="btn btn-secondary" href="./Paul_Ayotomiwa_Resume.pdf.pdf" download="Paul_Ayotomiwa_Resume.pdf">Download Résumé ↓</a>
           </div>
         </div>
       </div>
     </section>
 
+    <section class="section stay-updated" id="stay-updated">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Stay Connected</span>
+          <h2>Stay updated with <span class="blue">Map_Technologies.</span></h2>
+          <p>Follow our updates, discover what we're building, and join the community as we grow.</p>
+        </div>
 
-    <!-- Contact -->
+        <div class="updated-grid">
+          <article class="updated-card">
+            <span class="updated-label">ANNOUNCEMENTS &amp; UPDATES</span>
+            <h3>Follow our WhatsApp Channel</h3>
+            <p>Get updates about our projects, website launches, services and learning journey.</p>
+            <a class="btn btn-primary" href="https://whatsapp.com/channel/0029VbEAe5M72WTu3vC65t13" target="_blank" rel="noopener noreferrer">Follow WhatsApp Channel ↗</a>
+          </article>
+
+          <article class="updated-card">
+            <span class="updated-label">COMMUNITY</span>
+            <h3>Join our Discord Community</h3>
+            <p>Connect with us, follow our journey and be part of the Map_Technologies community.</p>
+            <a class="btn btn-secondary" href="https://discord.gg/cJTQuxSzH" target="_blank" rel="noopener noreferrer">Join Discord Community ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="contact">
       <div class="container">
         <div class="contact-box">
           <div class="contact-copy">
             <span class="eyebrow">Have a project in mind?</span>
-
-            <h2>
-              Let's bring your idea
-              <span class="blue">online.</span>
-            </h2>
-
-            <p>
-              Tell me about your business or project. We'll discuss
-              your requirements and a quote before any work begins.
-            </p>
+            <h2>Let's bring your idea <span class="blue">online.</span></h2>
+            <p>Tell me about your business or project. We'll discuss your requirements and a quote before any work begins.</p>
 
             <div class="contact-details">
               <div class="contact-item">
                 <strong>WhatsApp Business</strong>
-                <a
-                  href="https://wa.me/message/7NJ6QECRRXVFK1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >Send an enquiry</a>
+                <a href="https://wa.me/message/7NJ6QECRRXVFK1" target="_blank" rel="noopener noreferrer">Send an enquiry</a>
               </div>
-
               <div class="contact-item">
                 <strong>Email</strong>
                 <a href="mailto:adigunpaulayotomiwa@mail.com">adigunpaulayotomiwa@mail.com</a>
               </div>
-
               <div class="contact-item">
                 <strong>GitHub</strong>
-                <a
-                  href="https://github.com/mapboda-afk"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >github.com/mapboda-afk ↗</a>
-              </div>
-
-              <div class="contact-item">
-                <strong>Discord community</strong>
-                <a
-                  href="https://discord.gg/cJTQuxSzH"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >Join the server </a>
+                <a href="https://github.com/mapboda-afk" target="_blank" rel="noopener noreferrer">github.com/mapboda-afk</a>
               </div>
             </div>
 
             <h3 class="social-heading">Find Map_Technologies online</h3>
 
-          
-<div class="socials" aria-label="Social media and contact links">
-  <a href="https://github.com/mapboda-afk"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="GitHub">
-    <img class="social-logo" src="https://cdn.simpleicons.org/github/FFFFFF"
-         alt="" width="29" height="29" loading="lazy">
-    <span class="social-name">GitHub</span>
-  </a>
+            <div class="socials" aria-label="Social media and contact links">
+              <a href="https://github.com/mapboda-afk" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <img class="social-logo" src="https://cdn.simpleicons.org/github/FFFFFF" alt="" width="29" height="29" loading="lazy">
+                <span class="social-name">GitHub</span>
+              </a>
+              <a href="https://x.com/mapboda01?s=11" target="_blank" rel="noopener noreferrer" aria-label="X">
+                <img class="social-logo" src="https://cdn.simpleicons.org/x/FFFFFF" alt="" width="29" height="29" loading="lazy">
+                <span class="social-name">X</span>
+              </a>
+              <a href="https://www.facebook.com/share/1DZpkQPPxE/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <img class="social-logo" src="https://cdn.simpleicons.org/facebook/0866FF" alt="" width="29" height="29" loading="lazy">
+                <span class="social-name">Facebook</span>
+              </a>
+              <a href="https://www.threads.com/@map_tech01" target="_blank" rel="noopener noreferrer" aria-label="Threads">
+                <img class="social-logo" src="https://cdn.simpleicons.org/threads/FFFFFF" alt="" width="29" height="29" loading="lazy">
+                <span class="social-name">Threads</span>
+              </a>
+              <a href="https://www.tiktok.com/@soft_map_boda" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                <img class="social-logo" src="https://cdn.simpleicons.org/tiktok/FFFFFF" alt="" width="29" height="29" loading="lazy">
+                <span class="social-name">TikTok</span>
+              </a>
+              <a href="https://discord.gg/DCXtJZPM" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                <img class="social-logo" src="https://cdn.simpleicons.org/discord/5865F2" alt="" width="29" height="29" loading="lazy">
+                <span class="social-name">Discord</span>
+              </a>
+              <a href="https://wa.me/message/7NJ6QECRRXVFK1" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <img class="social-logo" src="https://cdn.simpleicons.org/whatsapp/25D366" alt="" width="29" height="29" loading="lazy">
+                <span class="social-name">WhatsApp</span>
+              </a>
+              <a href="mailto:adigunpaulayotomiwa@mail.com" aria-label="Email">
+                <img class="social-logo" src="https://cdn.simpleicons.org/gmail/EA4335" alt="" width="29" height="29" loading="lazy">
+                <span class="social-name">Email</span>
+              </a>
+            </div>
 
-  <a href="https://x.com/mapboda01?s=11"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="X">
-    <img class="social-logo" src="https://cdn.simpleicons.org/x/FFFFFF"
-         alt="" width="29" height="29" loading="lazy">
-    <span class="social-name">X</span>
-  </a>
-
-  <a href="https://www.facebook.com/share/1DZpkQPPxE/?mibextid=wwXIfr"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="Facebook">
-    <img class="social-logo" src="https://cdn.simpleicons.org/facebook/0866FF"
-         alt="" width="29" height="29" loading="lazy">
-    <span class="social-name">Facebook</span>
-  </a>
-
-  <a href="https://www.threads.com/@map_tech01"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="Threads">
-    <img class="social-logo" src="https://cdn.simpleicons.org/threads/FFFFFF"
-         alt="" width="29" height="29" loading="lazy">
-    <span class="social-name">Threads</span>
-  </a>
-
-  <a href="https://www.tiktok.com/@soft_map_boda"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="TikTok">
-    <img class="social-logo" src="https://cdn.simpleicons.org/tiktok/FFFFFF"
-         alt="" width="29" height="29" loading="lazy">
-    <span class="social-name">TikTok</span>
-  </a>
-
-  <a href="https://discord.gg/cJTQuxSzH"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="Discord">
-    <img class="social-logo" src="https://cdn.simpleicons.org/discord/5865F2"
-         alt="" width="29" height="29" loading="lazy">
-    <span class="social-name">Discord</span>
-  </a>
-
-  <a href="https://wa.me/message/7NJ6QECRRXVFK1"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="WhatsApp">
-    <img class="social-logo" src="https://cdn.simpleicons.org/whatsapp/25D366"
-         alt="" width="29" height="29" loading="lazy">
-    <span class="social-name">WhatsApp</span>
-  </a>
-
-  <a href="mailto:adigunpaulayotomiwa@mail.com"
-     aria-label="Email">
-    <img class="social-logo" src="https://cdn.simpleicons.org/gmail/EA4335"
-         alt="" width="29" height="29" loading="lazy">
-    <span class="social-name">Email</span>
-  </a>
-</div>
-
-            <p class="small-note">
-              For project enquiries, message on WhatsApp or email.
-              Please include a short description of what you need.
-            </p>
+            <p class="small-note">For project enquiries, message on WhatsApp or email. Please include a short description of what you need.</p>
           </div>
 
           <div class="contact-actions">
-            <a
-              class="btn btn-primary"
-              href="https://wa.me/message/7NJ6QECRRXVFK1"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Message on WhatsApp </a>
-
-            <a
-              class="btn btn-secondary"
-              href="mailto:adigunpaulayotomiwa@mail.com"
-            >Send an Email </a>
-
-            <a
-              class="btn btn-secondary"
-              href="https://github.com/mapboda-afk"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Connect on GitHub ↗</a>
+            <a class="btn btn-primary" href="https://wa.me/message/7NJ6QECRRXVFK1" target="_blank" rel="noopener noreferrer">Message on WhatsApp</a>
+            <a class="btn btn-secondary" href="mailto:adigunpaulayotomiwa@mail.com">Send an Email</a>
+            <a class="btn btn-secondary" href="https://github.com/mapboda-afk" target="_blank" rel="noopener noreferrer">Connect on GitHub ↗</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="container footer-inner">
-      <a class="brand" href="#home">
-        Map<span>_Technologies</span>
-      </a>
-
-      <p>
-        © <span id="year"></span> Map_Technologies. Built with care.
-      </p>
-
+      <a class="brand" href="#home">Map<span>_Technologies</span></a>
+      <p>© <span id="year"></span> Map_Technologies. Built with care.</p>
       <div class="footer-links">
-        <a
-          href="https://map-technologies-portfolio.vercel.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Portfolio</a>
-
-        <a
-          href="https://github.com/mapboda-afk"
-          target="_blank"
-          rel="noopener noreferrer"
-        >GitHub</a>
-
-        <a
-          href="https://wa.me/message/7NJ6QECRRXVFK1"
-          target="_blank"
-          rel="noopener noreferrer"
-        >WhatsApp</a>
-
-        <a
-          href="https://discord.gg/cJTQuxSzH"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Discord</a>
+        <a href="https://map-technologies-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">Portfolio</a>
+        <a href="https://github.com/mapboda-afk" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://wa.me/message/7NJ6QECRRXVFK1" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://discord.gg/cJTQuxSzH" target="_blank" rel="noopener noreferrer">Discord</a>
       </div>
     </div>
   </footer>
@@ -1647,10 +1354,8 @@
     }
 
     menuToggle.addEventListener("click", function () {
-      const isCurrentlyOpen =
-        menuToggle.getAttribute("aria-expanded") === "true";
-
-      setMenuOpen(!isCurrentlyOpen);
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      setMenuOpen(!isOpen);
     });
 
     navLinks.querySelectorAll("a").forEach(function (link) {
